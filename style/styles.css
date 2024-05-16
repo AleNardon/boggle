@@ -1,28 +1,175 @@
-body{
-    background-color: #fff7e3;
-    font-family: 'Ubuntu', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-.game{
-    background-color: #fff7e3;
-    width: 400px;
-    height: 500px;
-}
-.dashboard{
-    background-color: #fff7e3;
-    width: 200px;
-    height: 400px;
-}
-main{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+/* link paleta de color */
+/* https://coolors.co/palette/003049-d62828-f77f00-fcbf49-eae2b7 */
+
+/* variables */
+:root {
+	/* --background: #eae2b7; */
+	/* --background: #FDF0D5; */
+	--background: #fffdf8;
+	--blue: #003049;
+	--black: #24292f;
+	--white: #e5e5e5;
+	--button-color: #003049;
+	--red: #d62828;
+	--green: #7ea16b;
 }
 
-.buttonLetter{   
-    max-width: fit-content;
-    background-color: yellow;
-    padding: 10px;
-    font-size: 20px;
+body {
+	background-color: var(--background);
+	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+		Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+		Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+.game {
+	/* width: 400px;
+	height: 500px; */
+}
+.dashboard {
+	width: 200px;
+	height: 400px;
+}
+.viewGame {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+}
+/*  */
+.game {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 15px 0px 30px 0px;
+}
+#timer {
+	font-size: 30px;
+	margin: 0px 0px 20px 0px;
+	font-weight: 700;
+}
+
+/* Tablero */
+.board {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	width: 255px;
+}
+.buttonLetter {
+	background-color: yellow;
+	height: 60px;
+	font-size: 35px;
+	width: 60px;
+	text-align: center;
+	align-content: center;
+}
+
+/* navbar */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	height: 50px;
+	padding: 0px 20px;
+	margin: 0px 0px 20px 0px;
+}
+.contact {
+	font-size: 35px !important;
+	color: var(--black);
+}
+.github {
+	max-width: 35px;
+}
+.title {
+	color: var(--black);
+	font-size: 30px;
+	font-weight: 700;
+}
+
+/* start page */
+.formStartGame {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 26px;
+	width: min-content;
+	margin: 70px auto;
+	border-radius: 15px;
+	color: var(--background);
+	font-size: 20px;
+	padding: 15px 25px;
+	background-color: var(--button-color);
+	box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 5%);
+}
+.input {
+	font-size: 20px;
+	padding: 5px;
+	height: 28px;
+	margin: 0px 0px 0px 0px;
+	border: none;
+	border-radius: 8px;
+	background-color: var(--background);
+	color: var(--blue);
+    font-weight: 500;
+}
+.input:focus {
+	outline: none;
+}
+
+.divInputName,
+.divInputTime {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	gap: 5px;
+}
+.divInputName label,
+.divInputTime label {
+	font-size: 15px;
+	font-weight: 700;
+}
+.btnStartGame {
+	background-color: var(--green);
+	color: var(--black);
+	font-weight: 600;
+	font-size: 20px;
+	padding: 5px 15px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	margin: 30px 0px 0px 0px;
+	width: fit-content;
+	align-self: flex-end;
+}
+#selectTime {
+	background: var(--background);
+	color: var(--blue);
+	border: none;
+	border-radius: 8px;
+	padding: 3px 4px;
+	margin-right: 5px;
+    font-weight: 600;
+}
+#selectTime option{
+    font-weight: 600;
+}
+#selectTime:focus {
+    outline: none;
+}
+#selectTime option:focus {
+    outline: none;
+}
+/* cambiar el back del option  seleccionado */
+#selectTime option:checked {
+    background: var(--blue);
+    color: var(--background);
+}
+/* cambiar el color del fondo del option al seleccionar el select que por defecto es celeste  */
+#selectTime option:hover {
+    background: var(--blue);
+    color: var(--background);
 }
