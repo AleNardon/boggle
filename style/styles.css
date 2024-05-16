@@ -1,0 +1,28 @@
+body{
+    background-color: #fff7e3;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.game{
+    background-color: #fff7e3;
+    width: 400px;
+    height: 500px;
+}
+.dashboard{
+    background-color: #fff7e3;
+    width: 200px;
+    height: 400px;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.buttonLetter{   
+    max-width: fit-content;
+    background-color: yellow;
+    padding: 10px;
+    font-size: 20px;
+}
