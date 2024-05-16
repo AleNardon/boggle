@@ -1,45 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style/normalize.css" />
-    <link rel="stylesheet" href="/style/styles.css" />
-    <script src="/js/main.js"></script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/style/normalize.css" />
+		<link rel="stylesheet" href="/style/styles.css" />
+		<script src="/js/main.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+		/>
+		
 
-    <title>Boggle</title>
-  </head>
-  <body>
-    <nav></nav>
-    <main>
-        
-        <div class="game"> 
+		<title>Boggle</title>
+	</head>
+	<body>
+		<header class="navbar">
+			<div>
+				<span class="material-symbols-outlined contact">
+					account_circle
+				</span>
+			</div>
+			<div class="title">Boggle</div>
+			<div>
+				<a
+					href="https://github.com/AleNardon/boggle"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img
+						class="github"
+						src="images/github-mark.png"
+						alt="githubIcon"
+					/>
+				</a>
+			</div>
+		</header>
+		<div class="startGame">
+			<form action="" class="formStartGame">
+				<div class="divInputName">
+					<label for="username">Nombre:</label>
+					<input type="text" id="username" name="username" class="input" required />
+				</div>
+				<div class="divInputTime">
+					<label for="room">Tiempo:</label>
+                    <div>
+                        <select name="" id="selectTime">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <label for="minutos">minutos.</label>
+                    </div>
+				</div>
+				<input
+					type="submit"
+					value="Empezar!"
+					class="btnStartGame"
+					onclick="startGame()"
+				/>
+			</form>
+		</div>
 
-            <div></div>
-            <div class="board">
-                <div class="buttonLetter" id="btn1">A</div>
-                <div class="buttonLetter" id="btn2">A</div>
-                <div class="buttonLetter" id="btn3">A</div>
-                <div class="buttonLetter" id="btn4">A</div>
-                <div class="buttonLetter" id="btn5">A</div>
-                <div class="buttonLetter" id="btn6">A</div>
-                <div class="buttonLetter" id="btn7">A</div>
-                <div class="buttonLetter" id="btn8">A</div>
-                <div class="buttonLetter" id="btn9">A</div>
-                <div class="buttonLetter" id="btn10">A</div>
-                <div class="buttonLetter" id="btn11">A</div>
-                <div class="buttonLetter" id="btn12">A</div>
-                <div class="buttonLetter" id="btn13">A</div>
-                <div class="buttonLetter" id="btn14">A</div>
-                <div class="buttonLetter" id="btn15">A</div>
-                <div class="buttonLetter" id="btn16">A</div>    
-            </div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="dashboard"></div>
-        
-    </main>
-    <footer></footer>
-  </body>
+		<div class="viewGame">
+			<div class="intro"></div>
+			<div class="game" style="display: none">
+				<div id="timer">3:00</div>
+				<div class="board">
+					<div class="buttonLetter" id="btn1">A</div>
+					<div class="buttonLetter" id="btn2">A</div>
+					<div class="buttonLetter" id="btn3">A</div>
+					<div class="buttonLetter" id="btn4">A</div>
+					<div class="buttonLetter" id="btn5">A</div>
+					<div class="buttonLetter" id="btn6">A</div>
+					<div class="buttonLetter" id="btn7">A</div>
+					<div class="buttonLetter" id="btn8">A</div>
+					<div class="buttonLetter" id="btn9">A</div>
+					<div class="buttonLetter" id="btn10">A</div>
+					<div class="buttonLetter" id="btn11">A</div>
+					<div class="buttonLetter" id="btn12">A</div>
+					<div class="buttonLetter" id="btn13">A</div>
+					<div class="buttonLetter" id="btn14">A</div>
+					<div class="buttonLetter" id="btn15">A</div>
+					<div class="buttonLetter" id="btn16">A</div>
+				</div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="dashboard"></div>
+		</div>
+		<footer></footer>
+	</body>
 </html>
