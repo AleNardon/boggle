@@ -1,0 +1,22 @@
+/* navbar */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	height: 50px;
+	padding: 0px 20px;
+	margin: 0px 0px 20px 0px;
+}
+.contact {
+	font-size: 35px !important;
+	color: var(--black);
+}
+.github {
+	max-width: 35px;
+}
+.title {
+	color: var(--black);
+	font-size: 30px;
+	font-weight: 700;
+}

@@ -1,0 +1,84 @@
+
+/* start page */
+.formStartGame {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 26px;
+	width: min-content;
+	margin: 70px auto;
+	border-radius: 15px;
+	color: var(--background);
+	font-size: 20px;
+	padding: 15px 25px;
+	background-color: var(--button-color);
+	box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 5%);
+}
+.input {
+	font-size: 20px;
+	padding: 5px;
+	height: 28px;
+	margin: 0px 0px 0px 0px;
+	border: none;
+	border-radius: 8px;
+	background-color: var(--background);
+	color: var(--blue);
+    font-weight: 500;
+}
+.input:focus {
+	outline: none;
+}
+
+.divInputName,
+.divInputTime {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	gap: 5px;
+}
+.divInputName label,
+.divInputTime label {
+	font-size: 15px;
+	font-weight: 700;
+}
+.btnStartGame {
+	background-color: var(--green);
+	color: var(--blue);
+	font-weight: 600;
+	font-size: 20px;
+	padding: 5px 15px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	width: fit-content;
+	align-self: flex-end;
+}
+#selectTime {
+	background: var(--background);
+	color: var(--blue);
+	border: none;
+	border-radius: 8px;
+	padding: 3px 4px;
+	margin-right: 5px;
+    font-weight: 600;
+}
+#selectTime option{
+    font-weight: 600;
+}
+#selectTime:focus {
+    outline: none;
+}
+#selectTime option:focus {
+    outline: none;
+}
+/* cambiar el back del option  seleccionado */
+#selectTime option:checked {
+    background: var(--blue);
+    color: var(--background);
+}
+/* cambiar el color del fondo del option al seleccionar el select que por defecto es celeste  */
+#selectTime option:hover {
+    background: var(--blue);
+    color: var(--background);
+}
