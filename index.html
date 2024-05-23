@@ -5,12 +5,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="/style/normalize.css" />
 		<link rel="stylesheet" href="/style/styles.css" />
+		<link rel="stylesheet" href="/style/startGame.css" />
+		<link rel="stylesheet" href="/style/navBar.css" />
 		<script src="/js/main.js"></script>
 		<link
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
 		/>
-		
 
 		<title>Boggle</title>
 	</head>
@@ -36,22 +37,28 @@
 				</a>
 			</div>
 		</header>
-		<div class="startGame">
+		<div class="startGame" style="display: none">
 			<form action="" class="formStartGame">
 				<div class="divInputName">
 					<label for="username">Nombre:</label>
-					<input type="text" id="username" name="username" class="input" required />
+					<input
+						type="text"
+						id="username"
+						name="username"
+						class="input"
+						required
+					/>
 				</div>
 				<div class="divInputTime">
 					<label for="room">Tiempo:</label>
-                    <div>
-                        <select name="" id="selectTime">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                        <label for="minutos">minutos.</label>
-                    </div>
+					<div>
+						<select name="" id="selectTime">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<label for="minutos">minutos.</label>
+					</div>
 				</div>
 				<input
 					type="submit"
@@ -60,11 +67,71 @@
 					onclick="startGame()"
 				/>
 			</form>
+			<div class="ranking">
+				<h3>Ranking</h3>
+				<div class="filtrosTable">
+					<input type="text" name="name" id="filtroUser" />
+					<input type="date" name="fecha" id="filtroFecha" />
+				</div>
+				<table id="tableRanking">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Fecha</th>
+							<th>Puntos</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Alejo</td>
+							<td>12/2/2024</td>
+							<td>29</td>
+						</tr>
+						<tr>
+							<td>pili</td>
+							<td>27/7/2024</td>
+							<td>24</td>
+						</tr>
+						<tr>
+							<td>flei</td>
+							<td>3/10/2024</td>
+							<td>12</td>
+						</tr>
+						<tr>
+							<td>emi</td>
+							<td>23/12/2024</td>
+							<td>10</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 
 		<div class="viewGame">
-			<div class="intro"></div>
-			<div class="game" style="display: none">
+			<div class="leftColumn">
+				<h3>Palabras jugadas</h3>
+				<div id="tablePoints">
+					<div class="titleTable">
+						<span> Palabras </span>
+						<span> Puntos </span>
+					</div>
+					<div class="contentTable">
+						<span> motoz </span>
+						<span> -6 </span>
+					</div>
+					<div class="contentTable">
+						<span> salon </span>
+						<span> 6 </span>
+					</div>
+					<div class="contentTable">
+						<span> raqueta </span>
+						<span> 8 </span>
+					</div>
+				</div>
+			</div>
+			<div class="game">
+				<div class="dashName">Hola <span id="name">Alejo</span>!</div>
+				<div class="dashPoints">Puntos: <span id="points">4</span></div>
 				<div id="timer">3:00</div>
 				<div class="board">
 					<div class="buttonLetter" id="btn1">A</div>
@@ -84,10 +151,51 @@
 					<div class="buttonLetter" id="btn15">A</div>
 					<div class="buttonLetter" id="btn16">A</div>
 				</div>
-				<div></div>
-				<div></div>
+				<div class=""><h3 id="wordSelected">AAAAA</h3></div>
+				<div class="DivbuttonAccept">
+					<button class="buttonAccept" onclick="addWord()">
+						Aceptar
+					</button>
+				</div>
 			</div>
-			<div class="dashboard"></div>
+			<div class="rightColumn ranking">
+				<h3>Ranking</h3>
+				<div class="filtrosTable">
+					<input type="text" name="name" id="filtroUser" />
+					<input type="date" name="fecha" id="filtroFecha" />
+				</div>
+				<table id="tableRanking">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Fecha</th>
+							<th>Puntos</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Alejo</td>
+							<td>12/2/2024</td>
+							<td>29</td>
+						</tr>
+						<tr>
+							<td>pili</td>
+							<td>27/7/2024</td>
+							<td>24</td>
+						</tr>
+						<tr>
+							<td>flei</td>
+							<td>3/10/2024</td>
+							<td>12</td>
+						</tr>
+						<tr>
+							<td>emi</td>
+							<td>23/12/2024</td>
+							<td>10</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 		<footer></footer>
 	</body>

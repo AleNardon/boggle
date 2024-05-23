@@ -22,12 +22,8 @@ body {
 		Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 	margin: 0;
 	padding: 0;
-	font-size: 16px;
 }
-.game {
-	/* width: 400px;
-	height: 500px; */
-}
+
 .dashboard {
 	width: 200px;
 	height: 400px;
@@ -39,16 +35,26 @@ body {
 	justify-content: center;
 }
 /*  */
-.game {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 15px 0px 30px 0px;
-}
+
 #timer {
-	font-size: 30px;
-	margin: 0px 0px 20px 0px;
+	font-size: 40px;
+	margin: 0px 0px 30px 0px;
 	font-weight: 700;
+}
+.dashPoints{    
+    margin-bottom: 30px;
+    padding: 3px 12px;
+    background: var(--black);
+    color: var(--background);
+    border-radius: 8px;
+    justify-items: center;
+    font-weight: 500;
+}
+.dashName{
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0px 0px 15px 0px;
+    color: var(--black);
 }
 
 /* Tablero */
@@ -56,120 +62,193 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 5px;
-	width: 255px;
+	width: 260px;
+	margin: auto;
+	justify-content: center;
 }
+
 .buttonLetter {
-	background-color: yellow;
+	background-color: #dbdbdb;
 	height: 60px;
 	font-size: 35px;
 	width: 60px;
 	text-align: center;
+	border-radius: 3px;
 	align-content: center;
 }
-
-/* navbar */
-.navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	height: 50px;
-	padding: 0px 20px;
-	margin: 0px 0px 20px 0px;
+.buttonLetter {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
-.contact {
-	font-size: 35px !important;
+.buttonLetter:hover {
+	cursor: pointer;
+	background-color: #c4c4c4;
+}
+.buttonSelect {
+	background-color: #585858;
+	color: var(--white);
+}
+.buttonSelect:hover {
+	background-color: #efefef;
 	color: var(--black);
 }
-.github {
-	max-width: 35px;
-}
-.title {
+.buttonPossible {
+	background-color: #fcbf49bf;
 	color: var(--black);
-	font-size: 30px;
-	font-weight: 700;
 }
-
-/* start page */
-.formStartGame {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	gap: 26px;
-	width: min-content;
-	margin: 70px auto;
-	border-radius: 15px;
-	color: var(--background);
-	font-size: 20px;
-	padding: 15px 25px;
-	background-color: var(--button-color);
-	box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 5%);
+.buttonPossible:hover {
+	background-color: #fcbf49;
+	color: var(--black);
 }
-.input {
-	font-size: 20px;
-	padding: 5px;
-	height: 28px;
-	margin: 0px 0px 0px 0px;
+.buttonLast {
+	border: 1px solid #f77f00;
+}
+#wordSelected {
+	letter-spacing: 2px;
+}
+.buttonAccept {
+	padding: 4px 20px;
 	border: none;
 	border-radius: 8px;
-	background-color: var(--background);
-	color: var(--blue);
-    font-weight: 500;
+	background: var(--green);
+	font-size: 18px;
+	font-weight: 600;
 }
-.input:focus {
+.buttonAccept:hover {
+    background: #6da051;
+    cursor: pointer;
+}
+
+.rightColumn {
+	width: 25%;
+}
+.leftColumn {
+	width: 25%;
+}
+.game {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 15px 0px 30px 0px;
+}
+@media (max-width: 768px) {
+	.viewGame {
+		flex-direction: column;
+	}
+
+	.game {
+		order: 1; /* Primera en orden en dispositivos móviles */
+		flex: 1 1 100%;
+		width: 100%;
+	}
+
+	.leftColumn {
+		order: 2; /* Segunda en orden en dispositivos móviles */
+
+		width: 98%;
+		margin: auto;
+		margin-bottom: 30px;
+	}
+	.rightColumn {
+		width: 98%;
+		order: 3;
+		margin: auto;
+		margin-bottom: 50px !important;
+	}
+	/* .rightColumn, .leftColumn {
+        order: 3; /* Tercera en orden en dispositivos móviles 
+    }*/
+}
+.leftColumn h3 {
+	color: var(--black);
+	text-align: center;
+	margin-top: 0px;
+}
+#tablePoints {
+	width: 80%;
+	margin: auto;
+	color: var(--black);
+}
+
+.titleTable span {
+	width: 50%;
+	text-align: center;
+	font-weight: 700;
+}
+.titleTable {
+	display: flex;
+	align-items: center;
+	padding-bottom: 5px;
+
+	border-bottom: 1px solid var(--black);
+}
+.contentTable span {
+	width: 50%;
+	text-align: center;
+	padding: 5px 0px 5px 0px;
+	margin-bottom: 2px;
+	border-bottom: 1px solid #aaaaaa93;
+}
+.contentTable {
+	display: flex;
+	align-items: center;
+}
+
+/* tabla de ranking */
+.ranking {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--black);
+}
+.ranking h3 {
+	margin-top: 0px;
+}
+.filtrosTable {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+	width: 90%;
+}
+
+#filtroUser {
+	margin-right: 10px;
+	width: max-content;
+}
+#filtroFecha {
+	width: fit-content;
+}
+#filtroFecha,
+#filtroUser {
+	padding: 4px 10px;
+	border-radius: 10px;
+	border: 0.5px solid var(--black);
+	/* border:none; */
+	background-color: var(--background);
+	font-size: 10px;
+	font-weight: 500;
+}
+
+#filtroFecha:focus,
+#filtroUser:focus {
 	outline: none;
 }
-
-.divInputName,
-.divInputTime {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-evenly;
-	gap: 5px;
+#tableRanking {
+	width: 90%;
+	text-align: center;
+	border-collapse: collapse;
 }
-.divInputName label,
-.divInputTime label {
-	font-size: 15px;
-	font-weight: 700;
+#tableRanking thead tr th {
+	padding: 5px 0px;
+	border-bottom: 1px solid var(--black);
 }
-.btnStartGame {
-	background-color: var(--green);
-	color: var(--blue);
-	font-weight: 600;
-	font-size: 20px;
-	padding: 5px 15px;
-	border: none;
-	border-radius: 8px;
-	cursor: pointer;
-	width: fit-content;
-	align-self: flex-end;
+#tableRanking tbody tr td {
+	padding: 5px 0px;
+	margin-bottom: 2px;
 }
-#selectTime {
-	background: var(--background);
-	color: var(--blue);
-	border: none;
-	border-radius: 8px;
-	padding: 3px 4px;
-	margin-right: 5px;
-    font-weight: 600;
-}
-#selectTime option{
-    font-weight: 600;
-}
-#selectTime:focus {
-    outline: none;
-}
-#selectTime option:focus {
-    outline: none;
-}
-/* cambiar el back del option  seleccionado */
-#selectTime option:checked {
-    background: var(--blue);
-    color: var(--background);
-}
-/* cambiar el color del fondo del option al seleccionar el select que por defecto es celeste  */
-#selectTime option:hover {
-    background: var(--blue);
-    color: var(--background);
+#tableRanking tbody tr {
+	border-bottom: 1px solid #aaaaaa93;
 }
