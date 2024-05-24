@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="/style/startGame.css" />
 		<link rel="stylesheet" href="/style/navBar.css" />
 		<script src="/js/main.js"></script>
+		<script src="/js/board.js"></script>
 		<link
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -133,24 +134,7 @@
 				<div class="dashName">Hola <span id="name">Alejo</span>!</div>
 				<div class="dashPoints">Puntos: <span id="points">4</span></div>
 				<div id="timer">3:00</div>
-				<div class="board">
-					<div class="buttonLetter" id="btn1">A</div>
-					<div class="buttonLetter" id="btn2">A</div>
-					<div class="buttonLetter" id="btn3">A</div>
-					<div class="buttonLetter" id="btn4">A</div>
-					<div class="buttonLetter" id="btn5">A</div>
-					<div class="buttonLetter" id="btn6">A</div>
-					<div class="buttonLetter" id="btn7">A</div>
-					<div class="buttonLetter" id="btn8">A</div>
-					<div class="buttonLetter" id="btn9">A</div>
-					<div class="buttonLetter" id="btn10">A</div>
-					<div class="buttonLetter" id="btn11">A</div>
-					<div class="buttonLetter" id="btn12">A</div>
-					<div class="buttonLetter" id="btn13">A</div>
-					<div class="buttonLetter" id="btn14">A</div>
-					<div class="buttonLetter" id="btn15">A</div>
-					<div class="buttonLetter" id="btn16">A</div>
-				</div>
+				<div id="board"></div>
 				<div class=""><h3 id="wordSelected">AAAAA</h3></div>
 				<div class="DivbuttonAccept">
 					<button class="buttonAccept" onclick="addWord()">
