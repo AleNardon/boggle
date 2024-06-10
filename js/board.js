@@ -306,7 +306,7 @@ function initSelectLetter(btn) {
 function unselectLetter(play) {
 	let btnLetter = document.getElementById("btn" + play[0] + "-" + play[1]);
 	btnLetter.classList.remove("buttonLast", "buttonSelected");
-	btnLetter.classList.add("buttonUnselected");
+	btnLetter.classList.add("buttonUnSelected");
 	let word = document.getElementById("wordSelected");
 	word.innerHTML = word.innerHTML.slice(0, -1);
 }

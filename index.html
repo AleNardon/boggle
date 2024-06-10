@@ -7,8 +7,8 @@
 		<link rel="stylesheet" href="/style/styles.css" />
 		<link rel="stylesheet" href="/style/startGame.css" />
 		<link rel="stylesheet" href="/style/navBar.css" />
-		<script src="/js/main.js"></script>
-		<script src="/js/board.js"></script>
+		<link rel="stylesheet" href="/style/modals.css" />
+		
 		<link
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -19,7 +19,7 @@
 	<body>
 		<header class="navbar">
 			<div>
-				<span class="material-symbols-outlined contact">
+				<span id="contact" class="material-symbols-outlined contact">
 					account_circle
 				</span>
 			</div>
@@ -38,6 +38,16 @@
 				</a>
 			</div>
 		</header>
+		
+
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+			<!-- Modal content -->
+			<div class="modalContent">
+				<span class="close">&times;</span>
+				<p>Some text in the Modal..</p>
+			</div>
+		</div>
 		<div class="startGame" style="display: none">
 			<form action="" class="formStartGame">
 				<div class="divInputName">
@@ -182,5 +192,9 @@
 			</div>
 		</div>
 		<footer></footer>
+        <script src="/js/main.js"></script>
+		<script src="/js/board.js"></script>
+		<script src="/js/point.js"></script>
+		<script src="/js/modals.js"></script>
 	</body>
 </html>
