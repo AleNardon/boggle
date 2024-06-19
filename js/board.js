@@ -15,7 +15,7 @@ function wordPlay(word) {
 // el cual sera simetrico es decir si se recibe un 4 el tablero sera de 4x4
 //Devolvera un array de 2 dimenciones con todas las letras ingresadas y rellenara en el html el tablero con las letras
 function createBoard(len) {
-	let letters = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+	let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	let lettersArray = letters.split("");
 	let array = [];
 	let board = document.getElementById("board");
@@ -253,6 +253,7 @@ function selectLetter(btn) {
 	addListener("buttonSelected", 3);
 	addListener("buttonPossible", 2);
 	addListener("buttonUnSelected", 1);
+	addListener("buttonLast", 1);
 
 	// rellenamos la jugada con la letra
 	wordPlay(btnLetter.innerHTML);
@@ -348,6 +349,7 @@ function backLetter(btn) {
 	addListener("buttonSelected", 3);
 	addListener("buttonPossible", 2);
 	addListener("buttonUnSelected", 1);
+	addListener("buttonLast", 1);
 	// rellenamos la jugada con la letra
 }
 
