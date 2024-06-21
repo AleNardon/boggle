@@ -1,6 +1,6 @@
 
 /* start page */
-.formStartGame {
+#formStartGame {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
