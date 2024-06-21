@@ -11,31 +11,6 @@ function wordPlay(word) {
 	}
 }
 
-// Funcion que creara el tablero con letras al azar en cada boton el input que recibira es el tamaño del tablero
-// el cual sera simetrico es decir si se recibe un 4 el tablero sera de 4x4
-//Devolvera un array de 2 dimenciones con todas las letras ingresadas y rellenara en el html el tablero con las letras
-function createBoard(len) {
-	let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	let lettersArray = letters.split("");
-	let array = [];
-	let board = document.getElementById("board");
-	board.innerHTML = "";
-	for (let i = 0; i < len; i++) {
-		array.push([]);
-		for (let a = 0; a < len; a++) {
-			let randomLetter =
-				lettersArray[Math.floor(Math.random() * lettersArray.length)];
-			array[i].push(randomLetter);
-			board.innerHTML += `<div class="buttonLetter buttonUnSelected" id="btn${i}-${a}" >${randomLetter}</div>`;
-		}
-	}
-	// eliminar la palabra seleccionada
-	wordPlay();
-	// agregamos los event listeners a los botones para que tengan funcionalidad de inicio inicio
-	addListener("buttonLetter", 1);
-	return array;
-}
-
 //funcion que dados dos arrays de arrays genere un array con los elementos que sean unicos de ese array
 //ejemplo [[0,0],[1,0]]  [[1,0],[2,2],[1,2]] => [[2,2],[1,2]]
 // la funcion servira para filtrar las posibles jugadas pero que ya se hayan realizado
@@ -313,7 +288,6 @@ function unselectLetter(play) {
 }
 //boton de regreso
 function backLetter(btn) {
-	console.log("BACK");
 	btn = btn.target.id;
 	let playedMove = btn.replace("btn", "").split("-");
 	playedMove = [parseInt(playedMove[0]), parseInt(playedMove[1])];
@@ -367,9 +341,46 @@ function cleanBoard() {
 	removeClass("buttonUnSelected");
 
 	// //colocamos la marca de no seleccionado a todo el tablero
-	// addClass("buttonUnSelected", "buttonLetter");
+	addClass("buttonUnSelected", "buttonLetter");
 	// // quitamos todos los event listeners
-	// removeListener("buttonLetter");
+	removeListener("buttonLetter");
 	// // agregamos los event listeners a los botones para que tengan funcionalidad de inicio inicio
-	// addListener("buttonLetter", 1);
+	addListener("buttonLetter", 1);
+}
+
+function writeBoard(arr) {
+	let html = "";
+	let len = arr.length;
+	for (let i = 0; i < len; i++) {
+		for (let a = 0; a < len; a++) {
+			html += `<div class="buttonLetter buttonUnSelected">${arr[i][a]}</div>`;
+		}
+	}
+	return html;
+}
+
+// Funcion que creara el tablero con letras al azar en cada boton el input que recibira es el tamaño del tablero
+// el cual sera simetrico es decir si se recibe un 4 el tablero sera de 4x4
+//Devolvera un array de 2 dimenciones con todas las letras ingresadas y rellenara en el html el tablero con las letras
+function createBoard(len) {
+	let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	let lettersArray = letters.split("");
+	let array = [];
+	let board = document.getElementById("board");
+	board.innerHTML = "";
+	for (let i = 0; i < len; i++) {
+		array.push([]);
+		for (let a = 0; a < len; a++) {
+			let randomLetter =
+				lettersArray[Math.floor(Math.random() * lettersArray.length)];
+			array[i].push(randomLetter);
+			board.innerHTML += `<div class="buttonLetter buttonUnSelected" id="btn${i}-${a}" >${randomLetter}</div>`;
+		}
+	}
+	// eliminar la palabra seleccionada
+	wordPlay();
+	// agregamos los event listeners a los botones para que tengan funcionalidad de inicio inicio
+	addListener("buttonLetter", 1);
+	localStorage.setItem("board", JSON.stringify(array));
+	return array;
 }
