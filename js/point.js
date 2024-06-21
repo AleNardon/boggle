@@ -1,9 +1,7 @@
-localStorage.setItem("points", 0);
-localStorage.setItem("wordsPlayed", JSON.stringify([]));
-localStorage.setItem("plays", JSON.stringify([]));
 // Longitud de la palabra
 
 // letras --- Puntos
+//  >3  ---- -1
 //  3,4 ---- 1
 //   5  ---- 2
 //   6  ---- 3
@@ -46,16 +44,21 @@ function playWord(word, point) {
 	localStorage.setItem("wordsPlayed", JSON.stringify(listWord));
 
 	// tomar los puntos totales
-	let totalPoints = localStorage.getItem("points");
+	let totalPoints =
+		parseInt(localStorage.getItem("points")) + parseInt(point);
 	// sumar los puntos al total de puntos
-	localStorage.setItem("points", totalPoints + point);
+	localStorage.setItem("points", totalPoints);
 	// mostrar los puntos en la pantalla
 	document.getElementById("points").innerText = totalPoints.toString();
 }
 
 async function accept() {
 	let word = document.getElementById("wordSelected").innerText;
-
+	document.getElementById("wordSelected").innerText = "";
+	// si no hay palabra no hacer nada
+	if (word === "") {
+		return;
+	}
 	// la palabra ya se ha escrito?
 	let p = pointsWord(word);
 
@@ -64,6 +67,7 @@ async function accept() {
 		JSON.parse(localStorage.getItem("wordsPlayed")).includes(word)
 	) {
 		playWord(word, -1);
+		p = -1;
 	} else {
 		// la palabra no existe en el diccionario
 		try {
@@ -74,17 +78,23 @@ async function accept() {
 					headers: { "Content-Type": "application/json" },
 				}
 			);
-			console.log(word);
+
 			let status = res.status;
 			if (status === 200) {
 				playWord(word, p);
 			} else {
+				p = -1;
 				playWord(word, -1);
 			}
 		} catch (error) {
-			console.error(error);
+			// console.error(error);
 		}
 	}
+
 	cleanBoard();
-	document.getElementById("wordSelected").innerText = "";
+
+	document.getElementById("plays").innerHTML += createRegisterPlay({
+		word: word,
+		point: p,
+	});
 }
