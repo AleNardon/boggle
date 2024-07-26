@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/style/normalize.css" />
+		<link rel="stylesheet" href="/style/styles.css" />
+		<link rel="stylesheet" href="/style/startGame.css" />
+		<link rel="stylesheet" href="/style/navBar.css" />
+		<link rel="stylesheet" href="/style/modals.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+		/>
+
+		<title>Boggle</title>
+	</head>
+	<body>
+		<header class="navbar">
+			<div>
+				<span id="contact" class="material-symbols-outlined contact">
+					account_circle
+				</span>
+			</div>
+			<div class="title">Boggle</div>
+			<div>
+				<a
+					href="https://github.com/AleNardon/boggle"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img
+						class="github"
+						src="images/github-mark.png"
+						alt="githubIcon"
+					/>
+				</a>
+			</div>
+		</header>
+
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+			<!-- Modal content -->
+			<div class="modalContent">
+				<span class="close">&times;</span>
+				<div id="modalHtml"></div>
+			</div>
+		</div>
+        <div class="contactDiv">
+            <h1>Contact</h1>
+            <form action="mailto:your-email@example.com" method="post" enctype="text/plain" class="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required pattern="[A-Za-z0-9\s]+" />
+            
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+            
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required minlength="6"></textarea>
+            
+                <button type="submit">Send</button>
+            </form>
+        </div>
+	</body>
+</html>

@@ -13,7 +13,8 @@
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
 		/>
-
+		<!-- icon -->
+		<link rel="icon" href="./images/icon.png" type="image/x-icon" />
 		<title>Boggle</title>
 	</head>
 	<body>
@@ -22,8 +23,15 @@
 				<span id="contact" class="material-symbols-outlined contact">
 					account_circle
 				</span>
+				<a href="./contact.html">
+					<span class="mail material-symbols-outlined">
+                        alternate_email
+                        </span>
+				</a>
 			</div>
-			<div class="title">Boggle</div>
+			<a href="index.html">
+				<div class="title">Boggle</div>
+			</a>
 			<div>
 				<a
 					href="https://github.com/AleNardon/boggle"
@@ -39,7 +47,15 @@
 			</div>
 		</header>
 
-		<!-- The Modal -->
+		<!-- The Modal game over-->
+		<div id="contactModal" class="modal">
+			<!-- Modal content -->
+			<div class="modalContent">
+				<span class="close">&times;</span>
+				
+			</div>  
+		</div>
+		<!-- The Modal game over-->
 		<div id="myModal" class="modal">
 			<!-- Modal content -->
 			<div class="modalContent">
@@ -79,17 +95,17 @@
 			</form>
 			<div class="ranking">
 				<h3>Ranking</h3>
-				<div class="filtrosTable">
+				<!-- <div class="filtrosTable">
 					<input type="text" name="name" id="filtroUser" />
 					<input type="date" name="fecha" id="filtroFecha" />
-				</div>
+				</div> -->
 				<table id="tableRanking">
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Points</th>
-							<th>Time</th>
-							<th>Date</th>
+							<th id="NameRankTable">Name</th>
+							<th id="PointsRankTable">Points</th>
+							<th id="TimeRankTable">Time</th>
+							<th id="DateRankTable">Date</th>
 						</tr>
 					</thead>
 					<tbody></tbody>
@@ -109,9 +125,7 @@
 				</div>
 			</div>
 			<div class="game">
-				<div class="dashName">
-					Hi <span id="namePlay">Alejo</span>!
-				</div>
+				<div class="dashName">Hi <span id="namePlay">Alejo</span>!</div>
 				<div class="dashPoints">Points: <span id="points"></span></div>
 				<div id="timer">00:00</div>
 				<div id="board"></div>

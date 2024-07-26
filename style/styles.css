@@ -216,6 +216,9 @@ body {
 	margin-bottom: 10px;
 	width: 90%;
 }
+#tableRanking th:hover{
+    cursor: pointer;
+}
 
 #filtroUser {
 	margin-right: 10px;
