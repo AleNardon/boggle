@@ -33,7 +33,7 @@ function uniqueElements(playedMoves, possibleMoves) {
 function possiblePlays(btn, lenBoard) {
 	let btnArray = btn.replace("btn", "").split("-");
 	let compare = btnArray[0] + "-" + btnArray[1];
-	let x = parseInt(btnArray[0]);
+	let x = parseInt(btnArray[0]);  
 	let y = parseInt(btnArray[1]);
 	btnArray = [x, y];
 	let possiblePlays = [];
