@@ -53,6 +53,9 @@ function playWord(word, point) {
 }
 
 async function accept() {
+    var correct = new Audio("../sounds/correct.mp3");
+    var incorrect = new Audio("../sounds/incorrect.mp3");
+
 	var word = document.getElementById("wordSelected").innerText;
 	document.getElementById("wordSelected").innerText = "";
 	// si no hay palabra no hacer nada
@@ -67,6 +70,7 @@ async function accept() {
 		JSON.parse(localStorage.getItem("wordsPlayed")).includes(word)
 	) {
 		playWord(word, -1);
+        incorrect.play();
 		p = -1;
 	} else {
 		// la palabra no existe en el diccionario
@@ -82,9 +86,11 @@ async function accept() {
 			var status = res.status;
 			if (status === 200) {
 				playWord(word, p);
+                correct.play();
 			} else {
 				p = -1;
 				playWord(word, -1);
+                incorrect.play();
 			}
 		} catch (error) {
 			// console.error(error);
