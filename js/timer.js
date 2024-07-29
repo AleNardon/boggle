@@ -1,15 +1,15 @@
 function finishTime() {
 	document.getElementById("buttonAccept").disabled = true;
-	let ring = new Audio("../sounds/ring.mp3");
+	var ring = new Audio("../sounds/ring.mp3");
 	ring.play();
 	displayGameOverModal();
 	// ocultar el inicio del juego
 	document.getElementById("startGame").style.display = "";
 	// mostrar el juego
 	document.getElementById("viewGame").style.display = "none";
-	let rank = JSON.parse(localStorage.getItem("ranking"));
-	let configPlay = JSON.parse(localStorage.getItem("configPlay"));
-	let rankPlay = {
+	var rank = JSON.parse(localStorage.getItem("ranking"));
+	var configPlay = JSON.parse(localStorage.getItem("configPlay"));
+	var rankPlay = {
 		name: configPlay.name,
 		points: localStorage.getItem("points"),
 		date: configPlay.day,
@@ -26,14 +26,14 @@ function finishTime() {
 }
 
 function startTimer() {
-	let timerDisplay = document.getElementById("timer");
-	let time = JSON.parse(localStorage.getItem("configPlay")).time;
-	let totalTime = time * 60; // 3 minutos en segundos
-	// let totalTime = 10; // 3 minutos en segundos
+	var timerDisplay = document.getElementById("timer");
+	var time = JSON.parse(localStorage.getItem("configPlay")).time;
+	var totalTime = time * 60; // 3 minutos en segundos
+	// var totalTime = 10; // 3 minutos en segundos
 
-	let interval = setInterval(function () {
-		let minutes = Math.floor(totalTime / 60);
-		let seconds = totalTime % 60;
+	var interval = setInterval(function () {
+		var minutes = Math.floor(totalTime / 60);
+		var seconds = totalTime % 60;
 
 		// Formatear los números para que siempre tengan dos dígitos
 		minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -42,7 +42,7 @@ function startTimer() {
 		timerDisplay.textContent = minutes + ":" + seconds;
 		if (totalTime === 10) {
 			timerDisplay.classList.add("timerRed");
-			let clock = new Audio("../sounds/clock.mp3");
+			var clock = new Audio("../sounds/clock.mp3");
 			clock.play();
 		}
 

@@ -1,19 +1,14 @@
 
-// modal de contacto
-let contactModal = ` 
-<div class="modalContact">
-    <h2 class="titContact">Contacto</h2>
-    <p class="textContact">Si tienes alguna duda o sugerencia, no dudes en contactarnos.</p>
-</div>`;
-setModal(contactModal);
+
+
 
 // inicio del juego 
 function startGame() {
-    let form = document.getElementById("formStartGame")
+    var form = document.getElementById("formStartGame")
     // nombre con la primera en mayuscula el resto en minuscula
     
-    let name = form.name.value.charAt(0).toUpperCase() + form.name.value.slice(1).toLowerCase();
-    let time = form.time.value;
+    var name = form.name.value.charAt(0).toUpperCase() + form.name.value.slice(1).toLowerCase();
+    var time = form.time.value;
     
     localStorage.setItem("configPlay", JSON.stringify({ name: name, time: time, day: new Date()}));
     // ocultar el inicio del juego

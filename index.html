@@ -25,8 +25,8 @@
 				</span>
 				<a href="./contact.html">
 					<span class="mail material-symbols-outlined">
-                        alternate_email
-                        </span>
+						alternate_email
+					</span>
 				</a>
 			</div>
 			<a href="index.html">
@@ -51,16 +51,50 @@
 		<div id="contactModal" class="modal">
 			<!-- Modal content -->
 			<div class="modalContent">
-				<span class="close">&times;</span>
-				
-			</div>  
+				<span id="closeContact" class="close">&times;</span>
+				<div class="modalContact">
+					<h2 class="titContact">Contacto</h2>
+					<p class="textContact">
+						Si tienes alguna duda o sugerencia, no dudes en
+						contactarnos.
+					</p>
+				</div>
+			</div>
 		</div>
 		<!-- The Modal game over-->
 		<div id="myModal" class="modal">
 			<!-- Modal content -->
 			<div class="modalContent">
-				<span class="close">&times;</span>
+				<span id="closeGO" class="close">&times;</span>
 				<div id="modalHtml"></div>
+
+				<div class="gameOver">
+					<h2>Game Over</h2>
+
+					<div class="infoGameOver">
+						<div class="dashName finishName">
+							Name: <span id="idNameGO"></span>
+						</div>
+						<div id="idPointsGO" class="dashPoints finishPoint">
+							Total Points: <span id="idPointsGO"></span>
+						</div>
+						<div id="idTimerGO" class="timerFinish"></div>
+						<div id="idBoardGO" class="finishBoard"></div>
+					</div>
+					<div id="idErrorNoWordsGO" class="error">
+						No words were played
+					</div>
+					<div id="idWordsPlaysGO" class="wordsPlayed">
+						<h3>Words played</h3>
+						<div id="tablePointsFinish">
+							<div class="titleTable">
+								<span> Words </span>
+								<span> Points </span>
+							</div>
+							<div id="idPlaysGO"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div id="startGame">

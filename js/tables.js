@@ -1,10 +1,16 @@
 function createRegisterPlay(play) {
-	return `<div class="contentTable"><span> ${play.word} </span><span> ${play.point} </span></div>`;
+	return (
+		"<div class='contentTable'><span>" +
+		play.word +
+		"</span><span> " +
+		play.point +
+		" </span></div>"
+	);
 }
 function createTablePoints(plays) {
-	let len = plays.length;
-	let html = "";
-	for (let i = 0; i < len; i++) {
+	var len = plays.length;
+	var html = "";
+	for (var i = 0; i < len; i++) {
 		html += createRegisterPlay(plays[i]);
 	}
 	return html;
@@ -68,7 +74,7 @@ function sortTable(columnIndex, type) {
 }
 
 function createTableRanking() {
-	let rank = JSON.parse(localStorage.getItem("ranking"));
+	var rank = JSON.parse(localStorage.getItem("ranking"));
 
 	if (
 		rank === null ||
@@ -81,20 +87,40 @@ function createTableRanking() {
 	rank = rank.sort(function (a, b) {
 		return parseInt(b.points) - parseInt(a.points);
 	});
-	let table = document.querySelector("#tableRanking tbody");
-	let html = "";
-	for (let i = 0; i < rank.length; i++) {
-        html += "<tr>";
-		html += `<td>${rank[i].name}</td><td>${rank[i].points}</td><td>${
-            rank[i].time
-		}</td><td>${new Date(rank[i].date).toLocaleDateString("es-es")}</td>`;
-		html += "</tr>";
+	var table = document.querySelector("#tableRanking tbody");
+	var html = "";
+	for (var i = 0; i < rank.length; i++) {
+		html +=
+			"<tr><td>" +
+			rank[i].name +
+			"</td><td>" +
+			rank[i].points +
+			"</td><td>" +
+			rank[i].time +
+			"</td><td>" +
+			new Date(rank[i].date).toLocaleDateString("es-es") +
+			"</td></tr>";
 	}
 	table.innerHTML = html;
-    
-    document.getElementById("NameRankTable").addEventListener("click", function(){ sortTable(0,"string  ")});
-    document.getElementById("PointsRankTable").addEventListener("click", function(){ sortTable(1,"number")});
-    document.getElementById("TimeRankTable").addEventListener("click", function(){ sortTable(2,"number")});
-    document.getElementById("DateRankTable").addEventListener("click", function(){sortTable(3,"date")});
 
+	document
+		.getElementById("NameRankTable")
+		.addEventListener("click", function () {
+			sortTable(0, "string  ");
+		});
+	document
+		.getElementById("PointsRankTable")
+		.addEventListener("click", function () {
+			sortTable(1, "number");
+		});
+	document
+		.getElementById("TimeRankTable")
+		.addEventListener("click", function () {
+			sortTable(2, "number");
+		});
+	document
+		.getElementById("DateRankTable")
+		.addEventListener("click", function () {
+			sortTable(3, "date");
+		});
 }

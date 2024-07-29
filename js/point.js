@@ -26,7 +26,7 @@ function pointsWord(word) {
 
 // agregar la jugada a la lista de jugadas
 function playsTable(word, points) {
-	let plays = JSON.parse(localStorage.getItem("plays"));
+	var plays = JSON.parse(localStorage.getItem("plays"));
 	if (plays === undefined) {
 		localStorage.setItem("plays", JSON.stringify([]));
 		plays = JSON.parse(localStorage.getItem("plays"));
@@ -39,12 +39,12 @@ function playWord(word, point) {
 	// agregar la palabra y el puntaje a la tabla de jugadas
 	playsTable(word, point);
 	//agregar la palabra a las jugadas
-	let listWord = JSON.parse(localStorage.getItem("wordsPlayed"));
+	var listWord = JSON.parse(localStorage.getItem("wordsPlayed"));
 	listWord.push(word);
 	localStorage.setItem("wordsPlayed", JSON.stringify(listWord));
 
 	// tomar los puntos totales
-	let totalPoints =
+	var totalPoints =
 		parseInt(localStorage.getItem("points")) + parseInt(point);
 	// sumar los puntos al total de puntos
 	localStorage.setItem("points", totalPoints);
@@ -53,14 +53,14 @@ function playWord(word, point) {
 }
 
 async function accept() {
-	let word = document.getElementById("wordSelected").innerText;
+	var word = document.getElementById("wordSelected").innerText;
 	document.getElementById("wordSelected").innerText = "";
 	// si no hay palabra no hacer nada
 	if (word === "") {
 		return;
 	}
 	// la palabra ya se ha escrito?
-	let p = pointsWord(word);
+	var p = pointsWord(word);
 
 	if (
 		p === -1 ||
@@ -79,7 +79,7 @@ async function accept() {
 				}
 			);
 
-			let status = res.status;
+			var status = res.status;
 			if (status === 200) {
 				playWord(word, p);
 			} else {

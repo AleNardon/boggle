@@ -31,13 +31,13 @@ function uniqueElements(playedMoves, possibleMoves) {
 //recibe la letra seleccionada y devolbera las jugadas que se podran seleccionar sacando las letras que ya se seleccionaron
 //ejemplo [0,0] podra seleccionar [0,1][1,0][1,1] si es que ninguna de esas 3 jugadas ya se realizo
 function possiblePlays(btn, lenBoard) {
-	let btnArray = btn.replace("btn", "").split("-");
-	let compare = btnArray[0] + "-" + btnArray[1];
-	let x = parseInt(btnArray[0]);  
-	let y = parseInt(btnArray[1]);
+	var btnArray = btn.replace("btn", "").split("-");
+	var compare = btnArray[0] + "-" + btnArray[1];
+	var x = parseInt(btnArray[0]);
+	var y = parseInt(btnArray[1]);
 	btnArray = [x, y];
-	let possiblePlays = [];
-	let len = lenBoard - 1;
+	var possiblePlays = [];
+	var len = lenBoard - 1;
 
 	//esquina superior izquierda
 	if (compare === "0-0") {
@@ -119,7 +119,7 @@ function possiblePlays(btn, lenBoard) {
 // y activa los botones que pueden ser posibles jugadas
 function activePossibleButtons(arr) {
 	arr.forEach((element) => {
-		let btnLetter = document.getElementById(
+		var btnLetter = document.getElementById(
 			"btn" + element[0] + "-" + element[1]
 		);
 		btnLetter.classList.add("buttonPossible");
@@ -130,7 +130,7 @@ function activePossibleButtons(arr) {
 // y elimina la clase de todos los elementos que tengan ese identificador que tambien sera una clase
 // si no se recibe un identificador se eliminara la clase de todos los elementos que tengan la clase especificada
 function removeClass(clas, ident) {
-	let elements;
+	var elements;
 	if (ident === undefined) {
 		elements = document.querySelectorAll("." + clas);
 	} else {
@@ -160,7 +160,7 @@ function addClass(clas, ident) {
 // 3 para backLetter
 function addListener(className, varListener) {
 	// Seleccionamos todos los elementos con la clase especificada
-	const elements = document.querySelectorAll(`.${className}`);
+	const elements = document.querySelectorAll("." + className);
 
 	// Iteramos sobre los elementos y agregamos el evento click
 	elements.forEach((element) => {
@@ -183,7 +183,7 @@ function addListener(className, varListener) {
 // funcion que remueve los event listeners de los elementos que tengan la clase especificada
 function removeListener(className) {
 	// Seleccionamos todos los elementos con la clase especificada
-	const elements = document.querySelectorAll(`.${className}`);
+	const elements = document.querySelectorAll("." + className);
 
 	// Iteramos sobre los elementos y agregamos el evento click
 	elements.forEach((element) => {
@@ -199,9 +199,9 @@ function removeListener(className) {
 // esta funcion esta pensada para seguir con la jugada y no para iniciar una nueva
 function selectLetter(btn) {
 	btn = btn.target.id;
-	let xy = btn.replace("btn", "").split("-");
+	var xy = btn.replace("btn", "").split("-");
 	SELECTEDLETTERS.push([parseInt(xy[0]), parseInt(xy[1])]);
-	let btnLetter = document.getElementById(btn);
+	var btnLetter = document.getElementById(btn);
 
 	// quitamos los event listeners de las viejas posibilidades
 	removeListener("buttonPossible");
@@ -218,7 +218,7 @@ function selectLetter(btn) {
 	btnLetter.classList.add("buttonLast", "buttonSelected");
 
 	//seleccionar los posibles botones a seleccionar
-	let possibleButtons = possiblePlays(btn, LENBOARD);
+	var possibleButtons = possiblePlays(btn, LENBOARD);
 
 	//les ponemos estilos a los posibles botones que se pueden jugar y le quitamos el estilo de no seleccionado
 	activePossibleButtons(possibleButtons);
@@ -240,11 +240,11 @@ function initSelectLetter(btn) {
 	// limpia la lista de jugadas
 	SELECTEDLETTERS.length = 0;
 	// extraemos la jugada
-	let xy = btn.replace("btn", "").split("-");
+	var xy = btn.replace("btn", "").split("-");
 	// agregamos la jugada a la lista
 	SELECTEDLETTERS.push([parseInt(xy[0]), parseInt(xy[1])]);
 	// seleccionamos el boton
-	let btnLetter = document.getElementById(btn);
+	var btnLetter = document.getElementById(btn);
 
 	// limpiamos los estilos del tablero
 	removeClass("buttonPossible");
@@ -264,7 +264,7 @@ function initSelectLetter(btn) {
 	removeListener("buttonLetter");
 
 	//seleccionar los posibles botones a seleccionar
-	let possibleButtons = possiblePlays(btn, LENBOARD);
+	var possibleButtons = possiblePlays(btn, LENBOARD);
 	//les ponemos estilos a los posibles botones que se pueden jugar
 	activePossibleButtons(possibleButtons);
 	//agregamos los event listeners a los posibles botones
@@ -280,21 +280,21 @@ function initSelectLetter(btn) {
 }
 // funcion que dada una jugada la deseleccionara y tambien la quitara de la palabra que se esta jugando
 function unselectLetter(play) {
-	let btnLetter = document.getElementById("btn" + play[0] + "-" + play[1]);
+	var btnLetter = document.getElementById("btn" + play[0] + "-" + play[1]);
 	btnLetter.classList.remove("buttonLast", "buttonSelected");
 	btnLetter.classList.add("buttonUnSelected");
-	let word = document.getElementById("wordSelected");
+	var word = document.getElementById("wordSelected");
 	word.innerHTML = word.innerHTML.slice(0, -1);
 }
 //boton de regreso
 function backLetter(btn) {
 	btn = btn.target.id;
-	let playedMove = btn.replace("btn", "").split("-");
+	var playedMove = btn.replace("btn", "").split("-");
 	playedMove = [parseInt(playedMove[0]), parseInt(playedMove[1])];
 	const array = SELECTEDLETTERS;
-	let len = array.length;
+	var len = array.length;
 	for (
-		let i = len - 1;
+		var i = len - 1;
 		i >= 0 &&
 		!(array[i][0] === playedMove[0] && array[i][1] === playedMove[1]);
 		i--
@@ -302,7 +302,7 @@ function backLetter(btn) {
 		unselectLetter(array[i]);
 		array.pop();
 	}
-	let btnLetter = document.getElementById(btn);
+	var btnLetter = document.getElementById(btn);
 	// quitamos los event listeners de las viejas posibilidades
 	removeListener("buttonLetter");
 	//colocamos la marca de no seleccionado a los posibles viejos
@@ -313,7 +313,7 @@ function backLetter(btn) {
 
 	btnLetter.classList.add("buttonLast", "buttonSelected");
 	//seleccionar los posibles botones a seleccionar
-	let possibleButtons = possiblePlays(btn, LENBOARD);
+	var possibleButtons = possiblePlays(btn, LENBOARD);
 
 	//activamos los posibles botones del boton al que se volvio
 	activePossibleButtons(possibleButtons);
@@ -349,11 +349,14 @@ function cleanBoard() {
 }
 
 function writeBoard(arr) {
-	let html = "";
-	let len = arr.length;
-	for (let i = 0; i < len; i++) {
-		for (let a = 0; a < len; a++) {
-			html += `<div class="buttonLetter buttonUnSelected">${arr[i][a]}</div>`;
+	var html = "";
+	var len = arr.length;
+	for (var i = 0; i < len; i++) {
+		for (var a = 0; a < len; a++) {
+			html +=
+				"<div class='buttonLetter buttonUnSelected'>" +
+				arr[i][a] +
+				"</div>";
 		}
 	}
 	return html;
@@ -363,18 +366,25 @@ function writeBoard(arr) {
 // el cual sera simetrico es decir si se recibe un 4 el tablero sera de 4x4
 //Devolvera un array de 2 dimenciones con todas las letras ingresadas y rellenara en el html el tablero con las letras
 function createBoard(len) {
-	let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	let lettersArray = letters.split("");
-	let array = [];
-	let board = document.getElementById("board");
+	var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	var lettersArray = letters.split("");
+	var array = [];
+	var board = document.getElementById("board");
 	board.innerHTML = "";
-	for (let i = 0; i < len; i++) {
+	for (var i = 0; i < len; i++) {
 		array.push([]);
-		for (let a = 0; a < len; a++) {
-			let randomLetter =
+		for (var a = 0; a < len; a++) {
+			var randomLetter =
 				lettersArray[Math.floor(Math.random() * lettersArray.length)];
 			array[i].push(randomLetter);
-			board.innerHTML += `<div class="buttonLetter buttonUnSelected" id="btn${i}-${a}" >${randomLetter}</div>`;
+			board.innerHTML +=
+				"<div class='buttonLetter buttonUnSelected' id='btn" +
+				i +
+				"-" +
+				a +
+				"' >" +
+				randomLetter +
+				"</div>";
 		}
 	}
 	// eliminar la palabra seleccionada
