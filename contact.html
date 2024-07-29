@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="/style/startGame.css" />
 		<link rel="stylesheet" href="/style/navBar.css" />
 		<link rel="stylesheet" href="/style/modals.css" />
+		<link rel="stylesheet" href="/style/contact.css" />
 
 		<link
 			rel="stylesheet"
@@ -41,35 +42,43 @@
 			</div>
 		</header>
 
-		<!-- The Modal -->
-		<div id="myModal" class="modal">
+		<!-- The Modal game over-->
+		<div id="contactModal" class="modal">
 			<!-- Modal content -->
 			<div class="modalContent">
-				<span class="close">&times;</span>
-				<div id="modalHtml"></div>
+				<span id="closeContact" class="close">&times;</span>
+				<div class="modalInfo">
+
+					<h2 class="titContact">Final Project - Boggle </h2>
+                    <div>Subject: DAW </div>
+					<div>By Alejo Nardon</div>
+					<div>Professor: Darío Marañes</div>
+				</div>
 			</div>
 		</div>
 		<div class="contactDiv">
-			<h1>Contact</h1>
 			<form
 				action="mailto:your-email@example.com"
 				method="post"
 				enctype="text/plain"
 				class="contactForm"
 			>
-				<label for="name">Name:</label>
+			<h1>Contact</h1>
+
+				<label  for="name" class="labelContact">Name:</label>
 				<input
 					type="text"
 					id="name"
 					name="name"
 					required
 					pattern="[A-Za-z0-9\s]+"
+                    class="inputContact"
 				/>
 
-				<label for="email">Email:</label>
+				<label  for="email" class="labelContact">Email:</label>
 				<input type="email" id="email" name="email" required />
 
-				<label for="message">Message:</label>
+				<label  for="message" class="labelContact">Message:</label>
 				<textarea
 					id="message"
 					name="message"
@@ -81,4 +90,5 @@
 			</form>
 		</div>
 	</body>
+    <script src="/js/modals.js"></script>
 </html>

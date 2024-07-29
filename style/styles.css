@@ -258,3 +258,17 @@ body {
 #tableRanking tbody tr {
 	border-bottom: 1px solid #aaaaaa93;
 }
+
+
+/* Information modal */
+.modalInfo div{
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--blue);
+    margin-bottom: 10px;
+}
+.modalInfo h2{
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--black);
+}
