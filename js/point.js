@@ -1,5 +1,5 @@
 // Longitud de la palabra
-
+// funcion que dada una palabra devuelve los puntos que se le asignan dependiendo de su longitud
 // letras --- Puntos
 //  >3  ---- -1
 //  3,4 ---- 1
@@ -24,7 +24,7 @@ function pointsWord(word) {
 	}
 }
 
-// agregar la jugada a la lista de jugadas
+//Funcion que dada una palabra y los puntos agregar la jugada a la lista de jugadas
 function playsTable(word, points) {
 	var plays = JSON.parse(localStorage.getItem("plays"));
 	if (plays === undefined) {
@@ -35,6 +35,7 @@ function playsTable(word, points) {
 	localStorage.setItem("plays", JSON.stringify(plays));
 }
 
+// funcion que dada una palabra y los puntos modifica el marcador y las jugadas
 function playWord(word, point) {
 	// agregar la palabra y el puntaje a la tabla de jugadas
 	playsTable(word, point);
@@ -52,28 +53,31 @@ function playWord(word, point) {
 	document.getElementById("points").innerText = totalPoints.toString();
 }
 
+//funcion que le dara la funcionalidad al boton de aceptar la jugada
 async function accept() {
-    var correct = new Audio("../sounds/correct.mp3");
-    var incorrect = new Audio("../sounds/incorrect.mp3");
+	// sonidos de correcto e incorrecto para la jugada
+	var correct = new Audio("../sounds/correct.mp3");
+	var incorrect = new Audio("../sounds/incorrect.mp3");
 
 	var word = document.getElementById("wordSelected").innerText;
 	document.getElementById("wordSelected").innerText = "";
+
 	// si no hay palabra no hacer nada
 	if (word === "") {
 		return;
 	}
-	// la palabra ya se ha escrito?
+
 	var p = pointsWord(word);
 
+	// si la palabra ya fue jugada o es menor a 3 letras -> mala jugada
 	if (
 		p === -1 ||
 		JSON.parse(localStorage.getItem("wordsPlayed")).includes(word)
 	) {
 		playWord(word, -1);
-        incorrect.play();
+		incorrect.play();
 		p = -1;
 	} else {
-		// la palabra no existe en el diccionario
 		try {
 			const res = await fetch(
 				`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`,
@@ -85,20 +89,20 @@ async function accept() {
 
 			var status = res.status;
 			if (status === 200) {
+				// si la palabra se encuentra en el diccionario -> buena jugada
 				playWord(word, p);
-                correct.play();
+				correct.play();
 			} else {
+				// si la palabra no se encuentra en el diccionario -> mala jugada
 				p = -1;
 				playWord(word, -1);
-                incorrect.play();
+				incorrect.play();
 			}
-		} catch (error) {
-			// console.error(error);
-		}
+		} catch (error) {}
 	}
 
 	cleanBoard();
-
+	// mostrar la jugada en la tabla de jugadas
 	document.getElementById("plays").innerHTML += createRegisterPlay({
 		word: word,
 		point: p,

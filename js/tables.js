@@ -1,3 +1,5 @@
+// Funcion que dada una jugada con el formato {word: string, point: number}
+//  devuelve un str con el registro que servira para la tabla de jugadas
 function createRegisterPlay(play) {
 	return (
 		"<div class='contentTable'><span>" +
@@ -7,6 +9,9 @@ function createRegisterPlay(play) {
 		" </span></div>"
 	);
 }
+
+// Funcion que dada un array de jugadas con el formato {word: string, point: number}
+// devuelve un str con las jugadas en formato de tabla
 function createTablePoints(plays) {
 	var len = plays.length;
 	var html = "";
@@ -15,6 +20,9 @@ function createTablePoints(plays) {
 	}
 	return html;
 }
+
+// Funcion que servira para ordenar la tabla dependiendo su columna y tipo
+// ingresando el indice de la columna y el tipo de dato que se quiere ordenar
 function sortTable(columnIndex, type) {
 	var table,
 		rows,
@@ -73,9 +81,11 @@ function sortTable(columnIndex, type) {
 	}
 }
 
+// Funcion que creara la tabla de ranking
 function createTableRanking() {
 	var rank = JSON.parse(localStorage.getItem("ranking"));
 
+	// Si no hay datos en el ranking, no se hace nada
 	if (
 		rank === null ||
 		rank === undefined ||
@@ -84,9 +94,12 @@ function createTableRanking() {
 	) {
 		return;
 	}
+
+	// Ordenar el ranking por puntos
 	rank = rank.sort(function (a, b) {
 		return parseInt(b.points) - parseInt(a.points);
 	});
+
 	var table = document.querySelector("#tableRanking tbody");
 	var html = "";
 	for (var i = 0; i < rank.length; i++) {
@@ -103,6 +116,7 @@ function createTableRanking() {
 	}
 	table.innerHTML = html;
 
+	// agregamos los eventos a los botones de ordenar a cada columna de la tabla
 	document
 		.getElementById("NameRankTable")
 		.addEventListener("click", function () {

@@ -47,9 +47,11 @@ function startGame() {
 
 }
 
+// agregamos evento al boton de inicio de juego
 document.getElementById("formStartGame").addEventListener("submit", function (e) {
     e.preventDefault();
     startGame();
 });
 
+// creamos la tabla del ranking
 createTableRanking();
