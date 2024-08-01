@@ -56,8 +56,8 @@ function playWord(word, point) {
 //funcion que le dara la funcionalidad al boton de aceptar la jugada
 async function accept() {
 	// sonidos de correcto e incorrecto para la jugada
-	var correct = new Audio("../sounds/correct.mp3");
-	var incorrect = new Audio("../sounds/incorrect.mp3");
+	var correct = new Audio("./sounds/correct.mp3");
+	var incorrect = new Audio("./sounds/incorrect.mp3");
 
 	var word = document.getElementById("wordSelected").innerText;
 	document.getElementById("wordSelected").innerText = "";
