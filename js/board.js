@@ -1,7 +1,7 @@
 // Variable global de las letras seleccionadas en las jugadas
-const SELECTEDLETTERS = [];
+var SELECTEDLETTERS = [];
 // tamano del tablero
-const LENBOARD = 4;
+var LENBOARD = 4;
 
 // Funcion que recibe una letra y la agrega a jugada
 // si no recibe nada limpiara la jugada
@@ -18,15 +18,21 @@ function wordPlay(word) {
 // la funcion servira para filtrar las posibles jugadas pero que ya se hayan realizado
 
 function uniqueElements(playedMoves, possibleMoves) {
-	// Convertir las jugadas realizadas a un conjunto de cadenas para una búsqueda rápida
-	const playedSet = new Set(playedMoves.map((move) => JSON.stringify(move)));
+    // Convertir las jugadas realizadas a un objeto para una búsqueda rápida
+    var playedSet = {};
+    for (var i = 0; i < playedMoves.length; i++) {
+        playedSet[JSON.stringify(playedMoves[i])] = true;
+    }
 
-	// Filtrar las jugadas posibles que no estén en el conjunto de jugadas realizadas
-	const remainingMoves = possibleMoves.filter(
-		(move) => !playedSet.has(JSON.stringify(move))
-	);
+    // Filtrar las jugadas posibles que no estén en el objeto de jugadas realizadas
+    var remainingMoves = [];
+    for (var j = 0; j < possibleMoves.length; j++) {
+        if (!playedSet[JSON.stringify(possibleMoves[j])]) {
+            remainingMoves.push(possibleMoves[j]);
+        }
+    }
 
-	return remainingMoves;
+    return remainingMoves;
 }
 
 //funcion que identifica que jugadas pueden seguir
@@ -120,13 +126,13 @@ function possiblePlays(btn, lenBoard) {
 // funcion que recibe un array de jugadas del tipo [[0,1][0,0][1,0]]
 // y activa los botones que pueden ser posibles jugadas
 function activePossibleButtons(arr) {
-	arr.forEach((element) => {
-		var btnLetter = document.getElementById(
-			"btn" + element[0] + "-" + element[1]
-		);
-		btnLetter.classList.add("buttonPossible");
-		btnLetter.classList.remove("buttonUnSelected");
-	});
+    arr.forEach(function(element) {
+        var btnLetter = document.getElementById(
+            "btn" + element[0] + "-" + element[1]
+        );
+        btnLetter.classList.add("buttonPossible");
+        btnLetter.classList.remove("buttonUnSelected");
+    });
 }
 
 // -----------Funcionalidades de clases------------
@@ -134,29 +140,30 @@ function activePossibleButtons(arr) {
 // y elimina la clase de todos los elementos que tengan ese identificador que tambien sera una clase
 // si no se recibe un identificador se eliminara la clase de todos los elementos que tengan la clase especificada
 function removeClass(clas, ident) {
-	var elements;
-	if (ident === undefined) {
-		elements = document.querySelectorAll("." + clas);
-	} else {
-		elements = document.querySelectorAll("." + ident);
-	}
+    var elements;
+    if (ident === undefined) {
+        elements = document.querySelectorAll("." + clas);
+    } else {
+        elements = document.querySelectorAll("." + ident);
+    }
 
-	// Itera sobre cada elemento y elimina la clase especificada
-	elements.forEach((element) => {
-		element.classList.remove(clas);
-	});
+    // Itera sobre cada elemento y elimina la clase especificada
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove(clas);
+    }
 }
 
 // funcion que recibe una clase y un identificador
 // y agrega la clase a todos los elementos que tengan ese identificador que tambien sera una clase
 function addClass(clas, ident) {
-	const elements = document.querySelectorAll("." + ident);
+    var elements = document.querySelectorAll("." + ident);
 
-	// Itera sobre cada elemento y elimina la clase especificada
-	elements.forEach((element) => {
-		element.classList.add(clas);
-	});
+    // Itera sobre cada elemento y añade la clase especificada
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.add(clas);
+    }
 }
+
 
 // funcion que creara un event listener a todos los elementos que tengan la clase especificada
 // tambien debera ingresar varListener que sera una variable para identificar que tipo de evento se le agregara
@@ -164,31 +171,32 @@ function addClass(clas, ident) {
 // 2 para selectLetter
 // 3 para backLetter
 function addListener(className, varListener) {
-	// Seleccionamos todos los elementos con la clase especificada
-	const elements = document.querySelectorAll("." + className);
+    // Seleccionamos todos los elementos con la clase especificada
+    var elements = document.querySelectorAll("." + className);
 
-	// Iteramos sobre los elementos y agregamos el evento click
-	elements.forEach((element) => {
-		// eliminamos los posibles eventos que pueda tener el boton
-		element.removeEventListener("click", initSelectLetter);
-		element.removeEventListener("click", selectLetter);
-		element.removeEventListener("click", backLetter);
+    // Iteramos sobre los elementos y agregamos el evento click
+    for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
 
-		// agrega el evento correspondiente al boton
-		if (varListener === 1) {
-			element.addEventListener("click", initSelectLetter);
-		} else if (varListener === 2) {
-			element.addEventListener("click", selectLetter);
-		} else if (varListener === 3) {
-			element.addEventListener("click", backLetter);
-		}
-	});
+        // Eliminamos los posibles eventos que pueda tener el botón
+        element.removeEventListener("click", initSelectLetter);
+        element.removeEventListener("click", selectLetter);
+        element.removeEventListener("click", backLetter);
+
+        // Agrega el evento correspondiente al botón
+        if (varListener === 1) {
+            element.addEventListener("click", initSelectLetter);
+        } else if (varListener === 2) {
+            element.addEventListener("click", selectLetter);
+        } else if (varListener === 3) {
+            element.addEventListener("click", backLetter);
+        }
+    }
 }
-
 // funcion que remueve los event listeners de los elementos que tengan la clase especificada
 function removeListener(className) {
 	// Seleccionamos todos los elementos con la clase especificada
-	const elements = document.querySelectorAll("." + className);
+	var elements = document.querySelectorAll("." + className);
 
 	// Iteramos sobre los elementos y agregamos el evento click
 	elements.forEach((element) => {
@@ -299,7 +307,7 @@ function backLetter(btn) {
 	var playedMove = btn.replace("btn", "").split("-");
 	// array con la letra seleccionada
 	playedMove = [parseInt(playedMove[0]), parseInt(playedMove[1])];
-	const array = SELECTEDLETTERS;
+	var array = SELECTEDLETTERS;
 	var len = array.length;
 	// quitamos las letras seleccionadas hasta la letra seleccionada
 	for (

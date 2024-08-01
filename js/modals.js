@@ -12,7 +12,7 @@ span.onclick = function () {
 };
 
 window.onclick = function (event) {
-	if (event.target == modal) {
+	if (event.target === modal) {
 		modal.style.display = "none";
 	}
 };
@@ -64,7 +64,7 @@ function displayGameOverModal() {
 
 	// si hace click fuera del modal no se cierre
 	window.onclick = function (event) {
-		if (event.target == modal) {
+		if (event.target === modal) {
 			modal.style.display = "block";
 		}
 	};

@@ -56,12 +56,12 @@ function sortTable(columnIndex, type) {
 				var yContent = y.innerHTML.toLowerCase();
 			}
 
-			if (dir == "asc") {
+			if (dir === "asc") {
 				if (xContent > yContent) {
 					shouldSwitch = true;
 					break;
 				}
-			} else if (dir == "desc") {
+			} else if (dir === "desc") {
 				if (xContent < yContent) {
 					shouldSwitch = true;
 					break;
@@ -73,7 +73,7 @@ function sortTable(columnIndex, type) {
 			switching = true;
 			switchcount++;
 		} else {
-			if (switchcount == 0 && dir == "asc") {
+			if (switchcount === 0 && dir === "asc") {
 				dir = "desc";
 				switching = true;
 			}
