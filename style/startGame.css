@@ -54,6 +54,15 @@
 	width: fit-content;
 	align-self: flex-end;
 }
+.disabledBtn {
+	background-color: #83c0624b;
+	cursor: not-allowed;
+}
+#errorUsernameStart {
+	font-size: 9px;
+	margin-left: 13px;
+	color: var(--red);
+}
 #selectTime {
 	background: var(--background);
 	color: var(--blue);
