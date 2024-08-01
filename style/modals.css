@@ -17,12 +17,10 @@
 	background-color: #fefefe;
 	margin: 5% auto; /* 15% from the top and centered */
 	padding: 20px;
-	border:none;
+	border: none;
 	width: 80%; /* Could be more or less, depending on screen size */
-    border-radius: 10px;
-
+	border-radius: 10px;
 }
-
 
 /* The Close Button */
 .close {
@@ -40,37 +38,37 @@
 }
 
 #contact:hover {
-    cursor: pointer;
-
+	cursor: pointer;
 }
 
-.gameOver h2{
-    text-align: center;
-    font-size: 40px;
-    color: var(--red);
+.gameOver h2 {
+	text-align: center;
+	font-size: 40px;
+	color: var(--red);
 }
-.wordsPlayed h3{
-    text-align: center;
-    font-size: 32px;
-    margin-top: 70px;
+.wordsPlayed h3 {
+	text-align: center;
+	font-size: 32px;
+	margin-top: 70px;
 }
-.infoGameOver{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.infoGameOver {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.error{
-    color: var(--red);
-    margin: 35px auto;
-    width: fit-content;
+.error {
+	color: var(--red);
+	margin: 35px auto;
+	width: fit-content;
 }
-.greenPoints{
-    background-color: var(--green);
+.greenPoints {
+	background-color: var(--green);
 }
-.redPoints{
-    background-color: var(--red);
+.redPoints {
+	background-color: var(--red);
 }
-.finishPoints, .finishName{
-    font-size: 26px;
+.finishPoints,
+.finishName {
+	font-size: 26px;
 }

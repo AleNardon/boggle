@@ -8,12 +8,13 @@
 	padding: 0px 20px;
 	margin: 0px 0px 20px 0px;
 }
-.contact, .mail {
+.contact,
+.mail {
 	font-size: 35px !important;
 	color: var(--black);
 }
 .contact {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 .github {
 	max-width: 35px;
@@ -25,6 +26,6 @@
 }
 
 .navbar a {
-    color: var(--black);
-    text-decoration: none;
+	color: var(--black);
+	text-decoration: none;
 }

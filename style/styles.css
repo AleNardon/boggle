@@ -35,13 +35,14 @@ body {
 	justify-content: center;
 }
 /*  */
-#timer, .timerFinish {
+#timer,
+.timerFinish {
 	font-size: 40px;
 	margin: 0px 0px 30px 0px;
 	font-weight: 700;
 }
 .timerRed {
-    color: var(--red);
+	color: var(--red);
 }
 .dashPoints {
 	margin-bottom: 30px;
@@ -60,7 +61,8 @@ body {
 }
 
 /* Tablero */
-#board, .finishBoard {
+#board,
+.finishBoard {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 5px;
@@ -170,7 +172,8 @@ body {
 	text-align: center;
 	margin-top: 0px;
 }
-#tablePoints, .tablePointsFinish {
+#tablePoints,
+.tablePointsFinish {
 	width: 80%;
 	margin: auto;
 	color: var(--black);
@@ -216,8 +219,8 @@ body {
 	margin-bottom: 10px;
 	width: 90%;
 }
-#tableRanking th:hover{
-    cursor: pointer;
+#tableRanking th:hover {
+	cursor: pointer;
 }
 
 #filtroUser {
@@ -259,16 +262,15 @@ body {
 	border-bottom: 1px solid #aaaaaa93;
 }
 
-
 /* Information modal */
-.modalInfo div{
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--blue);
-    margin-bottom: 10px;
+.modalInfo div {
+	font-size: 20px;
+	font-weight: 400;
+	color: var(--blue);
+	margin-bottom: 10px;
 }
-.modalInfo h2{
-    font-size: 40px;
-    font-weight: 600;
-    color: var(--black);
+.modalInfo h2 {
+	font-size: 40px;
+	font-weight: 600;
+	color: var(--black);
 }
