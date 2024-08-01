@@ -27,19 +27,33 @@
 	padding: 8px;
 	border-radius: 8px;
 	border: none;
-	margin-bottom: 10px;
+	
 	resize: none;
 }
 .contactForm input:focus,
 .contactForm textarea:focus {
 	outline: none;
 }
-.contactForm button {
-	padding: 8px;
-	border-radius: 8px;
-	border: none;
-	background: var(--green);
+#sendContact {
+	background-color: var(--green);
 	color: var(--blue);
 	font-weight: 600;
+	font-size: 20px;
+	padding: 5px 15px;
+	border: none;
+	border-radius: 8px;
 	cursor: pointer;
+	width: fit-content;
+	align-self: flex-end;
+    margin-top: 15px;
+}
+.errorContact{
+    font-size: 9px;
+	margin-left: 13px;
+	color: #d62828 !important;
+    margin-bottom: 10px;
+}
+.disabledBtnContact{
+    background: #83c0624b !important;
+    cursor: not-allowed !important;
 }
