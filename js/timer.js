@@ -4,7 +4,7 @@ function finishTime() {
 	document.getElementById("buttonAccept").disabled = true;
 
 	// sonido de finalizacion
-	var ring = new Audio("../sounds/ring.mp3");
+	var ring = new Audio("sounds/ring.mp3");
 	ring.play();
 	// despliega el modal con la informacion de la partida
 	displayGameOverModal();
@@ -58,7 +58,7 @@ function startTimer() {
 		// si el tiempo llega a 10 segundos se pone en rojo y suena una alerta
 		if (totalTime === 10) {
 			timerDisplay.classList.add("timerRed");
-			var clock = new Audio("../sounds/clock.mp3");
+			var clock = new Audio("sounds/clock.mp3");
 			clock.play();
 		}
 		// si termina el tiempo se detiene el temporizador y se llama a la funcion de finalizacion
