@@ -3,15 +3,14 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-
 	height: 50px;
 	padding: 0px 20px;
 	margin: 0px 0px 20px 0px;
 }
 .contact,
 .mail {
-	font-size: 35px !important;
 	color: var(--black);
+	font-size: 35px !important;
 }
 .contact {
 	margin-right: 10px;
@@ -24,7 +23,6 @@
 	font-size: 30px;
 	font-weight: 700;
 }
-
 .navbar a {
 	color: var(--black);
 	text-decoration: none;

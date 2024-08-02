@@ -22,58 +22,56 @@ body {
 	padding: 0;
 }
 .dashboard {
-	width: 200px;
 	height: 400px;
+	width: 200px;
 }
 #viewGame {
 	display: flex;
-	flex-wrap: wrap;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: center;
 }
-/*  */
 #timer,
 .timerFinish {
 	font-size: 40px;
-	margin: 0px 0px 30px 0px;
 	font-weight: 700;
+	margin: 0px 0px 30px 0px;
 }
 .timerRed {
 	color: var(--red);
 }
 .dashPoints {
+	background: var(--black);
+	border-radius: 8px;
+	color: var(--background);
+	font-weight: 500;
+	justify-items: center;
 	margin-bottom: 30px;
 	padding: 3px 12px;
-	background: var(--black);
-	color: var(--background);
-	border-radius: 8px;
-	justify-items: center;
-	font-weight: 500;
 }
 .dashName {
+	color: var(--black);
 	font-size: 15px;
 	font-weight: 400;
 	margin: 0px 0px 15px 0px;
-	color: var(--black);
 }
-/* Tablero */
 #board,
 .finishBoard {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 5px;
-	width: 260px;
-	margin: auto;
 	justify-content: center;
+	gap: 5px;
+	margin: auto;
+	width: 260px;
 }
 .buttonLetter {
-	background-color: #dbdbdb;
-	height: 60px;
-	font-size: 35px;
-	width: 60px;
-	text-align: center;
-	border-radius: 3px;
 	align-content: center;
+	background-color: #dbdbdb;
+	border-radius: 3px;
+	font-size: 35px;
+	height: 60px;
+	text-align: center;
+	width: 60px;
 }
 .buttonLetter {
 	-webkit-user-select: none;
@@ -82,8 +80,8 @@ body {
 	user-select: none;
 }
 .buttonLetter:hover {
-	cursor: pointer;
 	background-color: #c4c4c4;
+	cursor: pointer;
 }
 .buttonSelected {
 	background-color: #585858;
@@ -109,12 +107,12 @@ body {
 	letter-spacing: 2px;
 }
 #buttonAccept {
-	padding: 4px 20px;
+	background: var(--green);
 	border: none;
 	border-radius: 8px;
-	background: var(--green);
 	font-size: 18px;
 	font-weight: 600;
+	padding: 4px 20px;
 }
 #buttonAccept:hover {
 	background: #6da051;
@@ -127,40 +125,40 @@ body {
 	width: 25%;
 }
 .game {
-	width: 50%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin: 15px 0px 30px 0px;
+	width: 50%;
 }
 .leftColumn h3 {
 	color: var(--black);
-	text-align: center;
 	margin-top: 0px;
+	text-align: center;
 }
 #tablePoints,
 .tablePointsFinish {
-	width: 80%;
-	margin: auto;
 	color: var(--black);
+	margin: auto;
+	width: 80%;
 }
 .titleTable span {
-	width: 50%;
-	text-align: center;
 	font-weight: 700;
+	text-align: center;
+	width: 50%;
 }
 .titleTable {
 	display: flex;
 	align-items: center;
-	padding-bottom: 5px;
 	border-bottom: 1px solid var(--black);
+	padding-bottom: 5px;
 }
 .contentTable span {
-	width: 50%;
-	text-align: center;
-	padding: 5px 0px 5px 0px;
-	margin-bottom: 2px;
 	border-bottom: 1px solid #aaaaaa93;
+	margin-bottom: 2px;
+	padding: 5px 0px 5px 0px;
+	text-align: center;
+	width: 50%;
 }
 .contentTable {
 	display: flex;
@@ -186,7 +184,6 @@ body {
 	cursor: pointer;
 	user-select: none;
 }
-
 #filtroUser {
 	margin-right: 10px;
 	width: max-content;
@@ -196,68 +193,68 @@ body {
 }
 #filtroFecha,
 #filtroUser {
-	padding: 4px 10px;
-	border-radius: 10px;
-	border: 0.5px solid var(--black);
 	background-color: var(--background);
+	border: 0.5px solid var(--black);
+	border-radius: 10px;
 	font-size: 10px;
 	font-weight: 500;
+	padding: 4px 10px;
 }
 #filtroFecha:focus,
 #filtroUser:focus {
 	outline: none;
 }
 #tableRanking {
-	width: 90%;
-	text-align: center;
 	border-collapse: collapse;
+	text-align: center;
+	width: 90%;
 }
 #tableRanking thead tr th {
-	padding: 5px 0px;
 	border-bottom: 1px solid var(--black);
+	padding: 5px 0px;
 }
 #tableRanking tbody tr td {
-	padding: 5px 0px;
 	margin-bottom: 2px;
+	padding: 5px 0px;
 }
 #tableRanking tbody tr {
 	border-bottom: 1px solid #aaaaaa93;
 }
 /* Information modal */
 .modalInfo div {
+	color: var(--blue);
 	font-size: 20px;
 	font-weight: 400;
-	color: var(--blue);
 	margin-bottom: 10px;
 }
 .modalInfo h2 {
+	color: var(--black);
 	font-size: 40px;
 	font-weight: 600;
-	color: var(--black);
 }
 @media (max-width: 768px) {
 	#viewGame {
 		flex-direction: column;
 	}
 	.game {
-		order: 1; /* Primera en orden en dispositivos móviles */
 		flex: 1 1 100%;
+		order: 1; /* Primera en orden en dispositivos móviles */
 		width: 100%;
 	}
 	.leftColumn {
-		order: 2; /* Segunda en orden en dispositivos móviles */
-
-		width: 98%;
 		margin: auto;
 		margin-bottom: 30px;
+		order: 2; /* Segunda en orden en dispositivos móviles */
+		width: 98%;
 	}
 	.rightColumn {
-		width: 98%;
-		order: 3;
 		margin: auto;
 		margin-bottom: 50px !important;
+		order: 3;
+		width: 98%;
 	}
 	/* .rightColumn, .leftColumn {
         order: 3; /* Tercera en orden en dispositivos móviles 
     }*/
 }
+

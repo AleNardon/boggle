@@ -19,9 +19,8 @@
 .contactForm input,
 .contactForm textarea {
 	padding: 8px;
-	border-radius: 8px;
 	border: none;
-
+	border-radius: 8px;
 	resize: none;
 }
 .contactForm input:focus,
@@ -29,23 +28,23 @@
 	outline: none;
 }
 #sendContact {
+	align-self: flex-end;
 	background-color: var(--green);
-	color: var(--blue);
-	font-weight: 600;
-	font-size: 20px;
-	padding: 5px 15px;
 	border: none;
 	border-radius: 8px;
+	color: var(--blue);
 	cursor: pointer;
-	width: fit-content;
-	align-self: flex-end;
+	font-size: 20px;
+	font-weight: 600;
 	margin-top: 15px;
+	padding: 5px 15px;
+	width: fit-content;
 }
 .errorContact {
-	font-size: 9px;
-	margin-left: 13px;
 	color: #d62828 !important;
+	font-size: 9px;
 	margin-bottom: 10px;
+	margin-left: 13px;
 }
 .disabledBtnContact {
 	background: #83c0624b !important;
