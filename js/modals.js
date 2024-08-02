@@ -1,3 +1,4 @@
+"use strict";
 // ---------Configuracion del modal de informacion------
 var modal = document.getElementById("contactModal");
 var btn = document.getElementById("contact");

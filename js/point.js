@@ -1,3 +1,4 @@
+"use strict";
 // funcion que dada una palabra devuelve los puntos que se le asignan dependiendo de su longitud
 // letras --- Puntos
 //  >3  ---- -1

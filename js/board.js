@@ -1,3 +1,4 @@
+"use strict";
 // Variable global de las letras seleccionadas en las jugadas
 var SELECTEDLETTERS = [];
 // tamano del tablero

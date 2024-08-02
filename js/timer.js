@@ -1,3 +1,4 @@
+"use strict";
 // Funcion que se activara al terminar el tiempo de juego
 function finishTime() {
 	// deshabilitar el boton de aceptar

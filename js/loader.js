@@ -1,3 +1,4 @@
+"use strict";
 // loader
 document.addEventListener("DOMContentLoaded", function () {
 	// Espera a que el contenido esté completamente cargado

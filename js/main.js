@@ -1,3 +1,4 @@
+"use strict";
 // inicio del juego
 function startGame() {
 	var form = document.getElementById("formStartGame");

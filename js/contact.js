@@ -1,3 +1,4 @@
+"use strict";
 // ----- validaciones en el formulario de contacto ----------
 // configuracion inicial
 var btnSend = document.getElementById("sendContact");

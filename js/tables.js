@@ -1,3 +1,4 @@
+"use strict";
 // Funcion que dada una jugada con el formato {word: string, point: number}
 //  devuelve un str con el registro que servira para la tabla de jugadas
 function createRegisterPlay(play) {

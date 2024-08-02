@@ -1,3 +1,4 @@
+"use strict";
 //----- validaciones en el formulario de inicio de juego----------
 // configuracion inicial
 var btnStart = document.getElementById("btnStartGame");
