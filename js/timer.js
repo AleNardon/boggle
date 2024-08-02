@@ -37,13 +37,15 @@ function finishTime() {
 	}
 	// crear la tabla del ranking
 	createTableRanking();
+    eventTableRanking()
 }
 
 // Funcion que inicia el temporizador
 function startTimer() {
 	var timerDisplay = document.getElementById("timer");
 	var time = JSON.parse(localStorage.getItem("configPlay")).time;
-	var totalTime = time * 60;
+	// var totalTime = time * 60;
+	var totalTime = 6;
 
 	// funcion que se ejecutara cada segundo
 	var interval = setInterval(function () {

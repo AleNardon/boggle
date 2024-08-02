@@ -221,6 +221,7 @@ body {
 }
 #tableRanking th:hover {
 	cursor: pointer;
+    user-select: none;
 }
 
 #filtroUser {

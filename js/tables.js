@@ -23,63 +23,143 @@ function createTablePoints(plays) {
 
 // Funcion que servira para ordenar la tabla dependiendo su columna y tipo
 // ingresando el indice de la columna y el tipo de dato que se quiere ordenar
-function sortTable(columnIndex, type) {
-	var table,
-		rows,
-		switching,
-		i,
-		x,
-		y,
-		shouldSwitch,
-		dir,
-		switchcount = 0;
-	table = document.getElementById("tableRanking");
-	switching = true;
-	dir = "asc";
 
-	while (switching) {
-		switching = false;
-		rows = table.rows;
-		for (i = 1; i < rows.length - 1; i++) {
-			shouldSwitch = false;
-			x = rows[i].getElementsByTagName("td")[columnIndex];
-			y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+function createHtmlTable(data) {
+	var html = "",
+		d;
+	for (var i = 0; i < data.length; i++) {
+		d = new Date(data[i].date);
+		html +=
+			"<tr><td>" +
+			data[i].name +
+			"</td><td>" +
+			data[i].points +
+			"</td><td>" +
+			data[i].time +
+			"</td><td>" +
+			d.toLocaleDateString("en-us") +
+			" " +
+			d.getHours() +
+			":" +
+			d.getMinutes() +
+			"</td></tr>";
+	}
+	return html;
+}
 
-			if (type === "number") {
-				var xContent = parseFloat(x.innerHTML);
-				var yContent = parseFloat(y.innerHTML);
-			} else if (type === "date") {
-				var xContent = new Date(x.innerHTML);
-				var yContent = new Date(y.innerHTML);
-			} else {
-				var xContent = x.innerHTML.toLowerCase();
-				var yContent = y.innerHTML.toLowerCase();
-			}
-
-			if (dir === "asc") {
-				if (xContent > yContent) {
-					shouldSwitch = true;
-					break;
-				}
-			} else if (dir === "desc") {
-				if (xContent < yContent) {
-					shouldSwitch = true;
-					break;
-				}
-			}
-		}
-		if (shouldSwitch) {
-			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-			switching = true;
-			switchcount++;
-		} else {
-			if (switchcount === 0 && dir === "asc") {
-				dir = "desc";
-				switching = true;
-			}
-		}
+// Dado un array de objetos, el valor por el que se quiere ordenar y el tipo de orden 1 ascendente, 0 descendente
+// retorna el array ordenado por el valor especificado
+function orderByNumber(data, entrie, ascDesc) {
+	if (ascDesc === 1) {
+		data.sort(function (a, b) {
+			return parseInt(a[entrie]) - parseInt(b[entrie]);
+		});
+	} else {
+		data.sort(function (a, b) {
+			return parseInt(b[entrie]) - parseInt(a[entrie]);
+		});
 	}
 }
+function orderByString(data, entrie, ascDesc) {
+	var strA, strB;
+	if (ascDesc === 0) {
+		data.sort(function (a, b) {
+			strA = a[entrie].toUpperCase();
+			strB = b[entrie].toUpperCase();
+			return strA.localeCompare(strB);
+		});
+	} else {
+		data.sort(function (a, b) {
+			strA = a[entrie].toUpperCase();
+			strB = b[entrie].toUpperCase();
+			return strB.localeCompare(strA);
+		});
+	}
+}
+function orderByDate(data, entrie, ascDesc) {
+	var dateA, dateB;
+	if (ascDesc === 1) {
+		data.sort(function (a, b) {
+			dateA = new Date(a[entrie]);
+			dateB = new Date(b[entrie]);
+			return dateA - dateB;
+		});
+	} else {
+		data.sort(function (a, b) {
+			dateA = new Date(a[entrie]);
+			dateB = new Date(b[entrie]);
+			return dateB - dateA;
+		});
+	}
+}
+
+// funcion que quita las clases asc o desc de las columnas
+function removeClassTable() {
+	document.getElementById("nameRankTable").classList = "";
+	document.getElementById("pointsRankTable").classList = "";
+	document.getElementById("timeRankTable").classList = "";
+	document.getElementById("dateRankTable").classList = "";
+}
+// Funcion que dada un campo del objeto el tipo y el id de la columna de la tabla de ranking
+// ordena la tabla dependiendo el campo y el tipo
+// 1 de menor a mayor asc A-Z
+// 0 de mayor a menor desc Z-A
+function sortTable(entrie, type, columnId) {
+	var table = document.getElementById("tableRanking");
+	var dir;
+	var html = "";
+	var tbody = table.getElementsByTagName("tbody")[0];
+
+	var ranking = localStorage.getItem("ranking");
+	if (ranking === null) {
+		return;
+	}
+
+	var columnClass = document.getElementById(columnId).classList;
+
+	columnClass.contains("desc") ? (dir = 1) : (dir = 0);
+
+	removeClassTable();
+	dir === 1 ? columnClass.add("asc") : columnClass.add("desc");
+
+	ranking = JSON.parse(ranking);
+	if (type == "number") {
+		orderByNumber(ranking, entrie, dir);
+	} else if (type == "string") {
+		orderByString(ranking, entrie, dir);
+	} else if (type == "date") {
+		orderByDate(ranking, entrie, dir);
+	}
+
+	tbody.innerHTML = createHtmlTable(ranking);
+}
+
+// Funcion que agrega eventos a las columnas de la tabla de ranking
+// agregamos los eventos a los botones de ordenar a cada columna de la tabla
+function eventTableRanking() {
+	document
+		.getElementById("nameRankTable")
+		.addEventListener("click", function () {
+			sortTable("name", "string", "nameRankTable");
+		});
+	document
+		.getElementById("pointsRankTable")
+		.addEventListener("click", function () {
+			sortTable("points", "number", "pointsRankTable");
+		});
+	document
+		.getElementById("timeRankTable")
+		.addEventListener("click", function () {
+			sortTable("time", "number", "timeRankTable");
+		});
+	document
+		.getElementById("dateRankTable")
+		.addEventListener("click", function () {
+			console.log("click");
+			sortTable("date", "date", "dateRankTable");
+		});
+}
+
 
 // Funcion que creara la tabla de ranking
 function createTableRanking() {
@@ -101,40 +181,7 @@ function createTableRanking() {
 	});
 
 	var table = document.querySelector("#tableRanking tbody");
-	var html = "";
-	for (var i = 0; i < rank.length; i++) {
-		html +=
-			"<tr><td>" +
-			rank[i].name +
-			"</td><td>" +
-			rank[i].points +
-			"</td><td>" +
-			rank[i].time +
-			"</td><td>" +
-			new Date(rank[i].date).toLocaleDateString("es-es") +
-			"</td></tr>";
-	}
-	table.innerHTML = html;
-
-	// agregamos los eventos a los botones de ordenar a cada columna de la tabla
-	document
-		.getElementById("NameRankTable")
-		.addEventListener("click", function () {
-			sortTable(0, "string  ");
-		});
-	document
-		.getElementById("PointsRankTable")
-		.addEventListener("click", function () {
-			sortTable(1, "number");
-		});
-	document
-		.getElementById("TimeRankTable")
-		.addEventListener("click", function () {
-			sortTable(2, "number");
-		});
-	document
-		.getElementById("DateRankTable")
-		.addEventListener("click", function () {
-			sortTable(3, "date");
-		});
+	table.innerHTML = createHtmlTable(rank);
+    removeClassTable();
+	eventTableRanking();
 }
