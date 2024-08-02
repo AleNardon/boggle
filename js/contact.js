@@ -55,7 +55,7 @@ document.getElementById("email").addEventListener("focus", function () {
 // validar mensaje
 function validateMessage() {
 	var message = document.getElementById("message");
-	error = document.getElementById("errorMessage");
+	var error = document.getElementById("errorMessage");
 
 	if (message.value.length >= 5) {
 		error.style.display = "none";

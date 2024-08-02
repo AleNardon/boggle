@@ -1,24 +1,57 @@
-# boggle
+# Boggle
 
-Requerimientos:
+## Universidad Abierta Interamericana
 
-* Juego completamente funcional para un jugador debiendo ingresar nombre del jugador al iniciar la partida, validando como mínimo 3 letras para el nombre.
-* El juego debe contar con un temporizador.
-* Se deberá dar feedback al usuario cuando el tiempo se acabe.
-* Agregar puntaje por cada palabra encontrada (lógica para validación de palabras).
-* Restar puntaje cada vez que se intenta agregar una palabra que no sea correcta.
-* No se debe permitir el agregado de palabras que ya hayan sido encontradas.
-* No se debe permitir el agregado de palabras con menos de 3 letras.
-* En un lugar cercano al tablero, el usuario deberá ir visualizando la palabra que se va formando
-* Deberá contar con una sección que muestre el listado de palabras que se vayan encontrando
-* Crear una página de Contacto, con un formulario que permita ingresar nombre, mail y mensaje, y al enviar se abra la herramienta de envío de emails predeterminada del sistema operativo.
-* Validaciones del formulario de contacto (nombre alfanumérico, mail válido y mensaje con más de 5 caracteres).
-* Agregar un link a la página de Github donde se alojó el código del juego, que alapretarlo se abra en una nueva pestaña.
-* Mostrar con un color diferente las letras que están seleccionadas y con un borde diferente la última seleccionada.
-* Mostrar con un color diferente las letras que pueden ser seleccionadas a continuación.
-* Múltiples temporizadores (select con 3 opciones de temporizador).
-Mostrar el temporizador con un color diferente cuando el tiempo está por terminar (últimos 10 segundos). Otra opción es reproducir un sonido de alerta.
-* Mostrar puntuación en tiempo real a medida que el usuario adivina o erra palabras.
-* Guardar los resultados de cada partida del juego usando LocalStorage, recordando el nombre, puntaje y la fecha y hora de la partida.
-* Agregar un botón para mostrar un popup (modal) con la lista de partidas con jugadores, puntajes y fechas. En este ranking debe estar ordenado por puntaje.
-* Agregar la opción de ordenar el ranking por fecha o puntaje.
+### Final de Desarrollo de Arquitecturas Web
+
+**Turno Mañana**
+
+**Profesor:** Dario Marañes 
+
+**Fecha:** 08/2024
+
+**Alumno:** Alejo Nardon
+
+**Link de GitHub:**
+https://github.com/AleNardon/boggle
+
+**Link de GitHub Pages:**
+https://alenardon.github.io/boggle/
+## Introducción
+
+Boggle es un juego de palabras en el que los jugadores intentan encontrar tantas palabras como puedan en una cuadrícula de 16 casillas (4x4) que contienen letras de forma aleatoria, dentro de un límite de tiempo establecido.
+
+## Reglas
+
+Para comenzar el juego, el usuario deberá ingresar un nombre válido con más de 3 caracteres y seleccionar el tiempo deseado.
+
+El juego comienza al ordenarse las letras en la cuadrícula, momento que coincide con el inicio del temporizador (que puede configurarse a 1, 2 o 3 minutos).
+
+Para buscar las palabras se deben tener en cuenta los siguientes criterios:
+
+- Las palabras deben tener al menos tres letras.
+- Cada letra, después de la primera, debe ser vecina horizontal, vertical o diagonal de la anterior.
+- Ninguna casilla de letras individual se puede utilizar más de una vez en una palabra.
+- Se permiten múltiples formas de la misma palabra, como formas singulares y plurales y otras derivaciones. No se aceptan nombres propios, artículos ni pronombres.
+- Se permiten palabras dentro de palabras, como “casa” y “casamiento”.
+
+Las palabras ingresadas deben ser palabras reales y no haberse ingresado anteriormente; de lo contrario, habrá una penalización de 1 punto menos.
+
+## Jugabilidad
+
+Al comenzar el juego, el usuario podrá realizar distintas acciones en el tablero:
+
+1. Seleccionar una letra que no ha sido seleccionada previamente. Esta se encontrará en un color clarito, y si ya se había seleccionado alguna letra, la eliminará y seleccionará esa como primera letra.
+2. Si se selecciona la última letra que ha sido clickeada, que se podrá diferenciar por un borde naranja, empezará una nueva palabra con esta letra como la primera de la palabra.
+3. Si se selecciona una de las posibles letras para seguir la jugada y formar la palabra, que se podrá reconocer porque su fondo cambia a un naranja claro, esta letra se sumará a la jugada y se habilitarán las siguientes posibles letras a jugar.
+4. Si se selecciona una letra de la jugada que no sea la última, que estará con un fondo gris oscuro, se establecerá la jugada al momento en que se seleccionó esa letra, borrando las letras jugadas que siguieron después de esa.
+
+## Puntos
+
+| Longitud de la palabra (letras) | Puntos |
+| --- | --- |
+| 3, 4 | 1 |
+| 5 | 2 |
+| 6 | 3 |
+| 7 | 5 |
+| 8+ | 11 |
