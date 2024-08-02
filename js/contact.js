@@ -9,8 +9,7 @@ var errorEmail = document.getElementById("errorEmail");
 errorName.style.display = "none";
 errorMessage.style.display = "none";
 errorEmail.style.display = "none";
-
-//validar el nombre
+//Funcion para validar el nombre que sea mayor a 3 caracteres y solo letras y numeros
 function validateName() {
 	var name = document.getElementById("name");
 	var error = document.getElementById("errorName");
@@ -23,7 +22,6 @@ function validateName() {
 		return false;
 	}
 }
-
 //ejecute al salir del campo
 document.getElementById("name").addEventListener("blur", function () {
 	validateName();
@@ -32,8 +30,7 @@ document.getElementById("name").addEventListener("blur", function () {
 document.getElementById("name").addEventListener("focus", function () {
 	errorName.style.display = "none";
 });
-
-// validar mail
+// funcion para validar el email que sea un email valido con @ y .
 function validateEmail() {
 	var email = document.getElementById("email");
 	var error = document.getElementById("errorEmail");
@@ -46,7 +43,6 @@ function validateEmail() {
 		return false;
 	}
 }
-
 //ejecute al salir del campo
 document.getElementById("email").addEventListener("blur", function () {
 	validateEmail();
@@ -68,7 +64,6 @@ function validateMessage() {
 		return false;
 	}
 }
-
 //ejecute al salir del campo
 document.getElementById("message").addEventListener("blur", function () {
 	validateMessage();
@@ -77,7 +72,7 @@ document.getElementById("message").addEventListener("blur", function () {
 document.getElementById("message").addEventListener("focus", function () {
 	errorMessage.style.display = "none";
 });
-
+// funcion para validar el formulario completo si se cumple habilita el boton de enviar
 function validateContact() {
 	if (validateName() && validateEmail() && validateMessage()) {
 		btnSend.disabled = false;
@@ -87,7 +82,6 @@ function validateContact() {
 		btnSend.classList.add("disabledBtnContact");
 	}
 }
-
 document.getElementById("name").addEventListener("keyup", function () {
 	validateContact();
 });
@@ -97,16 +91,15 @@ document.getElementById("message").addEventListener("keyup", function () {
 document.getElementById("email").addEventListener("keyup", function () {
 	validateContact();
 });
-
 // Función para el mailto
 function sendMail() {
-	console.log("sendMail");
 	var name = document.getElementById("name").value;
 	var email = document.getElementById("email").value;
 	var message = document.getElementById("message").value;
-
 	var mailtoLink =
-		"mailto:"+encodeURIComponent(email)+"?subject=Message from " +
+		"mailto:" +
+		encodeURIComponent(email) +
+		"?subject=Message from " +
 		encodeURIComponent(name) +
 		"&body=" +
 		encodeURIComponent(message) +

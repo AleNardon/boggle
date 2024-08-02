@@ -1,4 +1,3 @@
-// Longitud de la palabra
 // funcion que dada una palabra devuelve los puntos que se le asignan dependiendo de su longitud
 // letras --- Puntos
 //  >3  ---- -1
@@ -7,7 +6,6 @@
 //   6  ---- 3
 //   7  ---- 5
 //   8+ ---- 11
-
 function pointsWord(word) {
 	if (word.length >= 3 && word.length <= 4) {
 		return 1;
@@ -23,7 +21,6 @@ function pointsWord(word) {
 		return -1;
 	}
 }
-
 //Funcion que dada una palabra y los puntos agregar la jugada a la lista de jugadas
 function playsTable(word, points) {
 	var plays = JSON.parse(localStorage.getItem("plays"));
@@ -34,7 +31,6 @@ function playsTable(word, points) {
 	plays.push({ word: word, point: points });
 	localStorage.setItem("plays", JSON.stringify(plays));
 }
-
 // funcion que dada una palabra y los puntos modifica el marcador y las jugadas
 function playWord(word, point) {
 	// agregar la palabra y el puntaje a la tabla de jugadas
@@ -43,7 +39,6 @@ function playWord(word, point) {
 	var listWord = JSON.parse(localStorage.getItem("wordsPlayed"));
 	listWord.push(word);
 	localStorage.setItem("wordsPlayed", JSON.stringify(listWord));
-
 	// tomar los puntos totales
 	var totalPoints =
 		parseInt(localStorage.getItem("points")) + parseInt(point);
@@ -52,23 +47,18 @@ function playWord(word, point) {
 	// mostrar los puntos en la pantalla
 	document.getElementById("points").innerText = totalPoints.toString();
 }
-
 //funcion que le dara la funcionalidad al boton de aceptar la jugada
 async function accept() {
 	// sonidos de correcto e incorrecto para la jugada
 	var correct = new Audio("sounds/correct.mp3");
 	var incorrect = new Audio("sounds/incorrect.mp3");
-
 	var word = document.getElementById("wordSelected").innerText;
 	document.getElementById("wordSelected").innerText = "";
-
 	// si no hay palabra no hacer nada
 	if (word === "") {
 		return;
 	}
-
 	var p = pointsWord(word);
-
 	// si la palabra ya fue jugada o es menor a 3 letras -> mala jugada
 	if (
 		p === -1 ||
@@ -86,7 +76,6 @@ async function accept() {
 					headers: { "Content-Type": "application/json" },
 				}
 			);
-
 			var status = res.status;
 			if (status === 200) {
 				// si la palabra se encuentra en el diccionario -> buena jugada
@@ -100,7 +89,6 @@ async function accept() {
 			}
 		} catch (error) {}
 	}
-
 	cleanBoard();
 	// mostrar la jugada en la tabla de jugadas
 	document.getElementById("plays").innerHTML += createRegisterPlay({

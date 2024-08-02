@@ -2,19 +2,16 @@
 function finishTime() {
 	// deshabilitar el boton de aceptar
 	document.getElementById("buttonAccept").disabled = true;
-
 	// sonido de finalizacion
 	var ring = new Audio("sounds/ring.mp3");
 	ring.play();
 	// despliega el modal con la informacion de la partida
 	displayGameOverModal();
-
 	// mostrar el inicio de juego
 	document.getElementById("startGame").style.display = "";
 	// ocultar el juego
 	document.getElementById("viewGame").style.display = "none";
 	var rank = JSON.parse(localStorage.getItem("ranking"));
-
 	// agregar la partida al ranking
 	var configPlay = JSON.parse(localStorage.getItem("configPlay"));
 	var rankPlay = {
@@ -37,25 +34,21 @@ function finishTime() {
 	}
 	// crear la tabla del ranking
 	createTableRanking();
-    eventTableRanking()
+	eventTableRanking();
 }
-
 // Funcion que inicia el temporizador
 function startTimer() {
 	var timerDisplay = document.getElementById("timer");
 	var time = JSON.parse(localStorage.getItem("configPlay")).time;
 	// var totalTime = time * 60;
 	var totalTime = 6;
-
 	// funcion que se ejecutara cada segundo
 	var interval = setInterval(function () {
 		var minutes = Math.floor(totalTime / 60);
 		var seconds = totalTime % 60;
-
 		// Formatear los números para que siempre tengan dos dígitos
 		minutes = minutes < 10 ? "0" + minutes : minutes;
 		seconds = seconds < 10 ? "0" + seconds : seconds;
-
 		timerDisplay.textContent = minutes + ":" + seconds;
 		// si el tiempo llega a 10 segundos se pone en rojo y suena una alerta
 		if (totalTime === 10) {

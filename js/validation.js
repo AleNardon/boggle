@@ -4,13 +4,10 @@ var btnStart = document.getElementById("btnStartGame");
 btnStart.disabled = true;
 btnStart.classList.add("disabledBtn");
 document.getElementById("errorUsernameStart").style.display = "none";
-
 //validar el inicio de juego el nombre correcto
 function validateStartGame() {
 	var btnstartButton = document.getElementById("btnStartGame");
 	var username = document.getElementById("username");
-	console.log("cac");
-
 	if (username.value.length >= 3) {
 		btnstartButton.disabled = false;
 		btnstartButton.classList.remove("disabledBtn");
@@ -37,4 +34,3 @@ document.getElementById("username").addEventListener("focus", function () {
 	var username = document.getElementById("username");
 	document.getElementById("errorUsernameStart").style.display = "none";
 });
-

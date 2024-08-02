@@ -2,12 +2,10 @@
 function startGame() {
 	var form = document.getElementById("formStartGame");
 	// nombre con la primera en mayuscula el resto en minuscula
-
 	var name =
 		form.name.value.charAt(0).toUpperCase() +
 		form.name.value.slice(1).toLowerCase();
 	var time = form.time.value;
-
 	localStorage.setItem(
 		"configPlay",
 		JSON.stringify({ name: name, time: time, day: new Date() })
@@ -22,21 +20,16 @@ function startGame() {
 	localStorage.setItem("wordsPlayed", JSON.stringify([]));
 	// poner las jugadas en un array vacío
 	localStorage.setItem("plays", JSON.stringify([]));
-
 	// sacar el estilo al temoporizador
 	document.getElementById("timer").classList.remove("timerRed");
-
 	// setear el tablero de jugadas en vacio
 	document.getElementById("plays").innerHTML = "";
 	// setear el tablero de puntos en 0
 	document.getElementById("points").innerText = "0";
 	// cambiar el nombre en el juego
 	document.getElementById("namePlay").innerText = name;
-
 	buttonAccept.disabled = true;
 	document.getElementById("buttonAccept").disabled = false;
-	//rellenar el ranking
-
 	// crear el tablero de juego
 	createBoard(4);
 	// agregar funcionalidad al boton aceptar
@@ -44,7 +37,6 @@ function startGame() {
 	// iniciar el temporizador
 	startTimer();
 }
-
 // agregamos evento al boton de inicio de juego
 document
 	.getElementById("formStartGame")
@@ -52,6 +44,5 @@ document
 		e.preventDefault();
 		startGame();
 	});
-
 // creamos la tabla del ranking
 createTableRanking();
