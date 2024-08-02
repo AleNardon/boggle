@@ -1,6 +1,5 @@
 /* link paleta de color */
 /* https://coolors.co/palette/003049-d62828-f77f00-fcbf49-eae2b7 */
-
 /* variables */
 :root {
 	/* --background: #eae2b7; */
@@ -14,7 +13,6 @@
 	/* --green: #7ea16b; */
 	--green: #83c062;
 }
-
 body {
 	background-color: var(--background);
 	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -23,7 +21,6 @@ body {
 	margin: 0;
 	padding: 0;
 }
-
 .dashboard {
 	width: 200px;
 	height: 400px;
@@ -59,7 +56,6 @@ body {
 	margin: 0px 0px 15px 0px;
 	color: var(--black);
 }
-
 /* Tablero */
 #board,
 .finishBoard {
@@ -70,7 +66,6 @@ body {
 	margin: auto;
 	justify-content: center;
 }
-
 .buttonLetter {
 	background-color: #dbdbdb;
 	height: 60px;
@@ -125,7 +120,6 @@ body {
 	background: #6da051;
 	cursor: pointer;
 }
-
 .rightColumn {
 	width: 25%;
 }
@@ -139,34 +133,6 @@ body {
 	align-items: center;
 	margin: 15px 0px 30px 0px;
 }
-@media (max-width: 768px) {
-	#viewGame {
-		flex-direction: column;
-	}
-
-	.game {
-		order: 1; /* Primera en orden en dispositivos móviles */
-		flex: 1 1 100%;
-		width: 100%;
-	}
-
-	.leftColumn {
-		order: 2; /* Segunda en orden en dispositivos móviles */
-
-		width: 98%;
-		margin: auto;
-		margin-bottom: 30px;
-	}
-	.rightColumn {
-		width: 98%;
-		order: 3;
-		margin: auto;
-		margin-bottom: 50px !important;
-	}
-	/* .rightColumn, .leftColumn {
-        order: 3; /* Tercera en orden en dispositivos móviles 
-    }*/
-}
 .leftColumn h3 {
 	color: var(--black);
 	text-align: center;
@@ -178,7 +144,6 @@ body {
 	margin: auto;
 	color: var(--black);
 }
-
 .titleTable span {
 	width: 50%;
 	text-align: center;
@@ -188,7 +153,6 @@ body {
 	display: flex;
 	align-items: center;
 	padding-bottom: 5px;
-
 	border-bottom: 1px solid var(--black);
 }
 .contentTable span {
@@ -202,7 +166,6 @@ body {
 	display: flex;
 	align-items: center;
 }
-
 /* tabla de ranking */
 .ranking {
 	display: flex;
@@ -221,7 +184,7 @@ body {
 }
 #tableRanking th:hover {
 	cursor: pointer;
-    user-select: none;
+	user-select: none;
 }
 
 #filtroUser {
@@ -236,12 +199,10 @@ body {
 	padding: 4px 10px;
 	border-radius: 10px;
 	border: 0.5px solid var(--black);
-	/* border:none; */
 	background-color: var(--background);
 	font-size: 10px;
 	font-weight: 500;
 }
-
 #filtroFecha:focus,
 #filtroUser:focus {
 	outline: none;
@@ -262,7 +223,6 @@ body {
 #tableRanking tbody tr {
 	border-bottom: 1px solid #aaaaaa93;
 }
-
 /* Information modal */
 .modalInfo div {
 	font-size: 20px;
@@ -274,4 +234,30 @@ body {
 	font-size: 40px;
 	font-weight: 600;
 	color: var(--black);
+}
+@media (max-width: 768px) {
+	#viewGame {
+		flex-direction: column;
+	}
+	.game {
+		order: 1; /* Primera en orden en dispositivos móviles */
+		flex: 1 1 100%;
+		width: 100%;
+	}
+	.leftColumn {
+		order: 2; /* Segunda en orden en dispositivos móviles */
+
+		width: 98%;
+		margin: auto;
+		margin-bottom: 30px;
+	}
+	.rightColumn {
+		width: 98%;
+		order: 3;
+		margin: auto;
+		margin-bottom: 50px !important;
+	}
+	/* .rightColumn, .leftColumn {
+        order: 3; /* Tercera en orden en dispositivos móviles 
+    }*/
 }
