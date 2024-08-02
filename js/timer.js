@@ -40,8 +40,7 @@ function finishTime() {
 function startTimer() {
 	var timerDisplay = document.getElementById("timer");
 	var time = JSON.parse(localStorage.getItem("configPlay")).time;
-	// var totalTime = time * 60;
-	var totalTime = 6;
+	var totalTime = time * 60;
 	// funcion que se ejecutara cada segundo
 	var interval = setInterval(function () {
 		var minutes = Math.floor(totalTime / 60);
