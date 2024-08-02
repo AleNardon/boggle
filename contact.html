@@ -3,13 +3,13 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./style/loader.css" />
 		<link rel="stylesheet" href="./style/normalize.css" />
 		<link rel="stylesheet" href="./style/styles.css" />
 		<link rel="stylesheet" href="./style/startGame.css" />
 		<link rel="stylesheet" href="./style/navBar.css" />
 		<link rel="stylesheet" href="./style/modals.css" />
 		<link rel="stylesheet" href="./style/contact.css" />
-
 		<link
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -18,74 +18,79 @@
 		<title>Boggle</title>
 	</head>
 	<body>
-		<header class="navbar">
-			<div>
-				<span id="contact" class="material-symbols-outlined contact">
-					account_circle
-				</span>
-			</div>
-			<a href="index.html">
-				<div class="title">Boggle</div>
-			</a>
-			<div>
-				<a
-					href="https://github.com/AleNardon/boggle"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<img
-						class="github"
-						src="./images/github-mark.png"
-						alt="githubIcon"
-					/>
+		<div id="loader" class="loader"></div>
+		<div id="content" class="hidden">
+			<header class="navbar">
+				<div>
+					<span
+						id="contact"
+						class="material-symbols-outlined contact"
+					>
+						account_circle
+					</span>
+				</div>
+				<a href="index.html">
+					<div class="title">Boggle</div>
 				</a>
-			</div>
-		</header>
-
-		<!-- The Modal game over-->
-		<div id="contactModal" class="modal">
-			<!-- Modal content -->
-			<div class="modalContent">
-				<span id="closeContact" class="close">&times;</span>
-				<div class="modalInfo">
-					<h2 class="titContact">Final Project - Boggle</h2>
-					<div>Subject: DAW</div>
-					<div>By Alejo Nardon</div>
-					<div>Professor: Darío Marañes</div>
+				<div>
+					<a
+						href="https://github.com/AleNardon/boggle"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<img
+							class="github"
+							src="./images/github-mark.png"
+							alt="githubIcon"
+						/>
+					</a>
+				</div>
+			</header>
+			<!-- The Modal game over-->
+			<div id="contactModal" class="modal">
+				<!-- Modal content -->
+				<div class="modalContent">
+					<span id="closeContact" class="close">&times;</span>
+					<div class="modalInfo">
+						<h2 class="titContact">Final Project - Boggle</h2>
+						<div>Subject: DAW</div>
+						<div>By Alejo Nardon</div>
+						<div>Professor: Darío Marañes</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="contactDiv">
-			<form
-				
-				
-				class="contactForm"
-			>
-				<h1>Contact</h1>
-
-				<label for="name" class="labelContact">Name:</label>
-				<input type="text" id="name" name="name" class="inputContact" />
-				<label id="errorName" class="errorContact"
-					>Error! The name is required and must be alphanumeric</label
-				>
-
-				<label for="email" class="labelContact">Email:</label>
-				<input type="email" id="email" name="email" />
-				<label id="errorEmail" class="errorContact"
-					>Error ! The email is required and must be in a valid
-					format</label
-				>
-				<label for="message" class="labelContact">Message:</label>
-				<textarea id="message" name="message"></textarea>
-				<label id="errorMessage" class="errorContact"
-					>Error! The message is required and must be more than 5
-					characters</label
-				>
-
-				<button id="sendContact" type="submit">Send</button>
-			</form>
+			<div class="contactDiv">
+				<form class="contactForm">
+					<h1>Contact</h1>
+					<label for="name" class="labelContact">Name:</label>
+					<input
+						type="text"
+						id="name"
+						name="name"
+						class="inputContact"
+					/>
+					<label id="errorName" class="errorContact"
+						>Error! The name is required and must be
+						alphanumeric</label
+					>
+					<label for="email" class="labelContact">Email:</label>
+					<input type="email" id="email" name="email" />
+					<label id="errorEmail" class="errorContact"
+						>Error ! The email is required and must be in a valid
+						format</label
+					>
+					<label for="message" class="labelContact">Message:</label>
+					<textarea id="message" name="message"></textarea>
+					<label id="errorMessage" class="errorContact"
+						>Error! The message is required and must be more than 5
+						characters</label
+					>
+					<button id="sendContact" type="submit">Send</button>
+				</form>
+			</div>
 		</div>
 	</body>
+	<script src="./js/loader.js"></script>
 	<script src="./js/contact.js"></script>
 	<script src="./js/modals.js"></script>
 </html>

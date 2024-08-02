@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./style/loader.css" />
 		<link rel="stylesheet" href="./style/normalize.css" />
 		<link rel="stylesheet" href="./style/styles.css" />
 		<link rel="stylesheet" href="./style/startGame.css" />
 		<link rel="stylesheet" href="./style/navBar.css" />
 		<link rel="stylesheet" href="./style/modals.css" />
-
 		<link
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -18,158 +18,163 @@
 		<title>Boggle</title>
 	</head>
 	<body>
-		<header class="navbar">
-			<div>
-				<span id="contact" class="material-symbols-outlined contact">
-					account_circle
-				</span>
-				<a href="./contact.html">
-					<span class="mail material-symbols-outlined">
-						alternate_email
-					</span>
-				</a>
-			</div>
-			<a href="index.html">
-				<div class="title">Boggle</div>
-			</a>
-			<div>
-				<a
-					href="https://github.com/AleNardon/boggle"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<img
-						class="github"
-						src="./images/github-mark.png"
-						alt="githubIcon"
-					/>
-				</a>
-			</div>
-		</header>
-
-		<!-- The Modal game over-->
-		<div id="contactModal" class="modal">
-			<!-- Modal content -->
-			<div class="modalContent">
-				<span id="closeContact" class="close">&times;</span>
-				<div class="modalInfo">
-					<h2 class="titContact">Final Project - Boggle</h2>
-					<div>Subject: DAW</div>
-					<div>By Alejo Nardon</div>
-					<div>Professor: Darío Marañes</div>
-				</div>
-			</div>
-		</div>
-		<!-- The Modal game over-->
-		<div id="myModal" class="modal">
-			<!-- Modal content -->
-			<div class="modalContent">
-				<span id="closeGO" class="close">&times;</span>
-				<div id="modalHtml"></div>
-
-				<div class="gameOver">
-					<h2>Game Over</h2>
-
-					<div class="infoGameOver">
-						<div class="dashName finishName">
-							Name: <span id="idNameGO"></span>
-						</div>
-						<div id="idPointsGO" class="dashPoints finishPoint">
-							Total Points: <span id="idPointsGO"></span>
-						</div>
-						<div id="idTimerGO" class="timerFinish"></div>
-						<div id="idBoardGO" class="finishBoard"></div>
-					</div>
-					<div id="idErrorNoWordsGO" class="error">
-						No words were played
-					</div>
-					<div id="idWordsPlaysGO" class="wordsPlayed">
-						<h3>Words played</h3>
-						<div id="tablePointsFinish">
-							<div class="titleTable">
-								<span> Words </span>
-								<span> Points </span>
-							</div>
-							<div id="idPlaysGO"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="startGame">
-			<form action="" id="formStartGame">
-				<div class="divInputName">
-					<label for="username">Name:</label>
-					<input
-						type="text"
-						id="username"
-						name="name"
-						class="input"
-						required
-					/>
-					<label id="errorUsernameStart"
-						>Error! the name must be more than 3 characters</label
+		<div id="loader" class="loader"></div>
+		<div id="content" class="hidden">
+			<header class="navbar">
+				<div>
+					<span
+						id="contact"
+						class="material-symbols-outlined contact"
 					>
+						account_circle
+					</span>
+					<a href="./contact.html">
+						<span class="mail material-symbols-outlined">
+							alternate_email
+						</span>
+					</a>
 				</div>
-				<div class="divInputTime">
-					<label for="room">Time:</label>
-					<div>
-						<select name="time" id="selectTime">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-						<label for="minutos">minutes.</label>
+				<a href="index.html">
+					<div class="title">Boggle</div>
+				</a>
+				<div>
+					<a
+						href="https://github.com/AleNardon/boggle"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<img
+							class="github"
+							src="./images/github-mark.png"
+							alt="githubIcon"
+						/>
+					</a>
+				</div>
+			</header>
+			<!-- The Modal game over-->
+			<div id="contactModal" class="modal">
+				<!-- Modal content -->
+				<div class="modalContent">
+					<span id="closeContact" class="close">&times;</span>
+					<div class="modalInfo">
+						<h2 class="titContact">Final Project - Boggle</h2>
+						<div>Subject: DAW</div>
+						<div>By Alejo Nardon</div>
+						<div>Professor: Darío Marañes</div>
 					</div>
 				</div>
-				<input
-					type="submit"
-					value="Start!"
-					class="btnStartGame"
-					id="btnStartGame"
-				/>
-			</form>
-			<div class="ranking">
-				<h3>Ranking</h3>
-
-				<table id="tableRanking">
-					<thead>
-						<tr>
-							<th id="nameRankTable">Name</th>
-							<th id="pointsRankTable">Points</th>
-							<th id="timeRankTable">Time</th>
-							<th id="dateRankTable">Date</th>
-						</tr>
-					</thead>
-					<tbody></tbody>
-				</table>
 			</div>
-		</div>
-
-		<div id="viewGame" style="display: none">
-			<div class="leftColumn">
-				<h3>Words Played</h3>
-				<div id="tablePoints">
-					<div class="titleTable">
-						<span> Words </span>
-						<span> Points </span>
+			<!-- The Modal game over-->
+			<div id="myModal" class="modal">
+				<!-- Modal content -->
+				<div class="modalContent">
+					<span id="closeGO" class="close">&times;</span>
+					<div id="modalHtml"></div>
+					<div class="gameOver">
+						<h2>Game Over</h2>
+						<div class="infoGameOver">
+							<div class="dashName finishName">
+								Name: <span id="idNameGO"></span>
+							</div>
+							<div id="idPointsGO" class="dashPoints finishPoint">
+								Total Points: <span id="idPointsGO"></span>
+							</div>
+							<div id="idTimerGO" class="timerFinish"></div>
+							<div id="idBoardGO" class="finishBoard"></div>
+						</div>
+						<div id="idErrorNoWordsGO" class="error">
+							No words were played
+						</div>
+						<div id="idWordsPlaysGO" class="wordsPlayed">
+							<h3>Words played</h3>
+							<div id="tablePointsFinish">
+								<div class="titleTable">
+									<span> Words </span>
+									<span> Points </span>
+								</div>
+								<div id="idPlaysGO"></div>
+							</div>
+						</div>
 					</div>
-					<div id="plays"></div>
 				</div>
 			</div>
-			<div class="game">
-				<div class="dashName">Hi <span id="namePlay"></span>!</div>
-				<div class="dashPoints">Points: <span id="points"></span></div>
-				<div id="timer">00:00</div>
-				<div id="board"></div>
-				<div class=""><h3 id="wordSelected"></h3></div>
-				<div class="divButtonAccept">
-					<button id="buttonAccept">Accept</button>
+			<div id="startGame">
+				<form action="" id="formStartGame">
+					<div class="divInputName">
+						<label for="username">Name:</label>
+						<input
+							type="text"
+							id="username"
+							name="name"
+							class="input"
+							required
+						/>
+						<label id="errorUsernameStart"
+							>Error! the name must be more than 3
+							characters</label
+						>
+					</div>
+					<div class="divInputTime">
+						<label for="room">Time:</label>
+						<div>
+							<select name="time" id="selectTime">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+							<label for="minutos">minutes.</label>
+						</div>
+					</div>
+					<input
+						type="submit"
+						value="Start!"
+						class="btnStartGame"
+						id="btnStartGame"
+					/>
+				</form>
+				<div class="ranking">
+					<h3>Ranking</h3>
+
+					<table id="tableRanking">
+						<thead>
+							<tr>
+								<th id="nameRankTable">Name</th>
+								<th id="pointsRankTable">Points</th>
+								<th id="timeRankTable">Time</th>
+								<th id="dateRankTable">Date</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+			<div id="viewGame" style="display: none">
+				<div class="leftColumn">
+					<h3>Words Played</h3>
+					<div id="tablePoints">
+						<div class="titleTable">
+							<span> Words </span>
+							<span> Points </span>
+						</div>
+						<div id="plays"></div>
+					</div>
+				</div>
+				<div class="game">
+					<div class="dashName">Hi <span id="namePlay"></span>!</div>
+					<div class="dashPoints">
+						Points: <span id="points"></span>
+					</div>
+					<div id="timer">00:00</div>
+					<div id="board"></div>
+					<div class=""><h3 id="wordSelected"></h3></div>
+					<div class="divButtonAccept">
+						<button id="buttonAccept">Accept</button>
+					</div>
 				</div>
 			</div>
 		</div>
-
 		<footer></footer>
+		<script src="./js/loader.js"></script>
 		<script src="./js/tables.js"></script>
 		<script src="./js/board.js"></script>
 		<script src="./js/point.js"></script>
